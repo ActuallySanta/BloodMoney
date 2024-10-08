@@ -6,17 +6,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Physics Variables
-    [SerializeField] float playerSpeed = 5f;
+    [SerializeField] float groundSpeed = 5f;
     [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] float inAirSpeed = 3.5f;
 
     //Reference to Input Manager (Can't name it that)
     [SerializeField] PlayerInputController playerInput;
 
     //Reference to the character sprite on the player
-    [SerializeField] Sprite playerSprite;
+    [SerializeField] SpriteRenderer playerSprite;
 
     //Reference to animator
     [SerializeField] Animator anim;
+
+    //Reference the rigidbody 2D attached to the player
+    [SerializeField] Rigidbody2D rb;
 
     //Reference to all the animations that the player can have (will be set by character selector)
     public Animation idleAnim;
@@ -59,6 +63,9 @@ public class PlayerController : MonoBehaviour
         //Check if the player is on the ground
         isGrounded = CheckForGround();
 
+        //Get Input
+        inputVector = GetDirInput();
+
         //Make the sprite face the direction the character is moving
         if (inputVector.x != 0) facingDir = inputVector.x;
 
@@ -68,13 +75,91 @@ public class PlayerController : MonoBehaviour
         {
             case PlayerState.idle:
                 //If the player inputs something while staying on the ground, switch to moving state
-                if(inputVector != Vector2.zero && isGrounded)
+                if (inputVector != Vector2.zero && isGrounded)
                 {
+                    ChangeState(PlayerState.moving);
+                }
 
+                //Let the player jump
+                if (inputVector.y > 0 && isGrounded)
+                {
+                    Jump();
+                }
+                break;
+
+            case PlayerState.moving:
+
+                //Allow the player to move
+                MovePlayer(inputVector, groundSpeed);
+
+                //Return to idle state if there is no input
+                if (inputVector == Vector2.zero && isGrounded) ChangeState(PlayerState.idle);
+
+                //Let the player jump if they press the up key
+                if (inputVector.y > 0 && isGrounded)
+                {
+                    Jump();
                 }
 
                 break;
+
+            case PlayerState.inAir:
+
+                //Let the player jump
+                MovePlayer(inputVector, inAirSpeed);
+
+                //Return to idle state if the player touches the ground
+                if (isGrounded) ChangeState(PlayerState.idle);
+
+                break;
         }
+    }
+
+    /// <summary>
+    /// Let the player jump while on the ground
+    /// </summary>
+    private void Jump()
+    {
+        //Remove any velocity it had beforehand (standardizes it)
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+
+        //Actually add the force
+        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+
+        //Change the state
+        ChangeState(PlayerState.inAir);
+    }
+
+    /// <summary>
+    /// Get the input from the input manager
+    /// </summary>
+    /// <returns>A vector2 with the inputs of the player as the x and y values</returns>
+    private Vector2 GetDirInput()
+    {
+        //Define temp variables
+        float _xInput = 0;
+        float _yInput = 0;
+
+        //If the left or right key are pressed, affect the float 
+        if (Input.GetKey(playerInput.leftKey)) _xInput--;
+        if (Input.GetKey(playerInput.rightKey)) _xInput++;
+
+        //If the left or right key are pressed, affect the float 
+        if (Input.GetKey(playerInput.downKey)) _yInput--;
+        if (Input.GetKey(playerInput.upKey)) _yInput++;
+
+        return new Vector2(_xInput, _yInput);
+    }
+
+    /// <summary>
+    /// Affect the rigidbody's velocity
+    /// </summary>
+    /// <param name="_inputVector">The input vector from the keyboard</param>
+    private void MovePlayer(Vector2 _inputVector, float _moveSpeed)
+    {
+        Vector2 _vel = new Vector2(_inputVector.x * _moveSpeed, rb.velocity.y);
+
+        rb.velocity = _vel;
     }
 
     /// <summary>
@@ -92,21 +177,22 @@ public class PlayerController : MonoBehaviour
     /// <param name="_endingState">The state being switched to</param>
     private void ChangeState(PlayerState _endingState)
     {
+        /*
         //Get the name of the starting animation from the state
         string startAnimName = currState.ToString(); //Convert the name to a string
         string[] subStrings = startAnimName.Split('.'); //Split the name at the .
         startAnimName = subStrings[1];
 
         anim.SetBool(startAnimName, false);
-        
+
         //Get the name of the ending animation from the state
         string endingAnimName = _endingState.ToString(); //Convert the name to a string
         string[] endSubStrings = endingAnimName.Split('.'); //Split the name at the .
         endingAnimName = subStrings[1];
 
         anim.SetBool(endingAnimName, true);
+        */
 
-        
         currState = _endingState;
     }
 }
