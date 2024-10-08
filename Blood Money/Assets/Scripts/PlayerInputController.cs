@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInputController : MonoBehaviour
 {
     public int playerInd = 0;
-    public KeyCode leftKey, rightKey, upKey, downKey, fireKey;
+    [HideInInspector]public KeyCode leftKey, rightKey, upKey, downKey, fireKey;
 
     // Start is called before the first frame update
     void Start()

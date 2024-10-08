@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         //Make the sprite face the direction the character is moving
         if (inputVector.x != 0) facingDir = inputVector.x;
 
-        transform.localScale = new Vector3(transform.localScale.x * facingDir, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(facingDir, transform.localScale.y, transform.localScale.z);
 
         switch (currState)
         {
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
                 //Let the player jump
                 if (inputVector.y > 0 && isGrounded)
                 {
-                    Jump();
+                    StartCoroutine(Jump());
                 }
                 break;
 
@@ -92,13 +92,13 @@ public class PlayerController : MonoBehaviour
                 //Allow the player to move
                 MovePlayer(inputVector, groundSpeed);
 
-                //Return to idle state if there is no input
-                if (inputVector == Vector2.zero && isGrounded) ChangeState(PlayerState.idle);
+                //Return to idle state if there is no horizontal input
+                if (inputVector.x == 0 && isGrounded) ChangeState(PlayerState.idle);
 
                 //Let the player jump if they press the up key
                 if (inputVector.y > 0 && isGrounded)
                 {
-                    Jump();
+                    StartCoroutine(Jump());
                 }
 
                 break;
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Let the player jump while on the ground
     /// </summary>
-    private void Jump()
+    private IEnumerator Jump()
     {
         //Remove any velocity it had beforehand (standardizes it)
         rb.velocity = new Vector2(rb.velocity.x, 0);
@@ -126,6 +126,9 @@ public class PlayerController : MonoBehaviour
         //Actually add the force
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
 
+        //Wait a second to make sure the player is not on the ground
+        yield return new WaitForSeconds(.01f);
+        
         //Change the state
         ChangeState(PlayerState.inAir);
     }
