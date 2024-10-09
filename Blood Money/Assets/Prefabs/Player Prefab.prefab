@@ -353,6 +353,7 @@ MonoBehaviour:
   upKey: 0
   downKey: 0
   fireKey: 0
+  equipmentKey: 0
 --- !u!50 &7431154702507195357
 Rigidbody2D:
   serializedVersion: 4
@@ -386,3 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78ecc9ac433c5548ae399ff6bd4577f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 7431154702507195356}
+  data: {fileID: 11400000, guid: 9f07ac5c65e8c8d40a9e389008e5d604, type: 2}
+  firePoint: {fileID: 0}
+  gunPos: {fileID: 7431154700632942721}

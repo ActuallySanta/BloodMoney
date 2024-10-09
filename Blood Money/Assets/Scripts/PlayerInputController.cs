@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerInputController : MonoBehaviour
 {
     public int playerInd = 0;
-    [HideInInspector]public KeyCode leftKey, rightKey, upKey, downKey, fireKey;
+    [HideInInspector] public KeyCode leftKey, rightKey, upKey, downKey, fireKey, equipmentKey;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,6 +25,7 @@ public class PlayerInputController : MonoBehaviour
                 upKey = KeyCode.W;
                 downKey = KeyCode.S;
                 fireKey = KeyCode.E;
+                equipmentKey = KeyCode.Q;
                 break;
 
             case 1:
@@ -33,6 +34,7 @@ public class PlayerInputController : MonoBehaviour
                 upKey = KeyCode.UpArrow;
                 downKey = KeyCode.DownArrow;
                 fireKey = KeyCode.RightShift;
+                equipmentKey = KeyCode.Slash;
                 break;
 
             case 2:
@@ -41,6 +43,7 @@ public class PlayerInputController : MonoBehaviour
                 upKey = KeyCode.I;
                 downKey = KeyCode.K;
                 fireKey = KeyCode.Semicolon;
+                equipmentKey = KeyCode.Quote;
                 break;
         }
     }
