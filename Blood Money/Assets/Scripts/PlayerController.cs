@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = CheckForGround();
 
         //Get Input
-        inputVector = GetDirInput();
+        inputVector = playerInput.GetDirInput();
 
         //Make the sprite face the direction the character is moving
         if (inputVector.x != 0) facingDir = inputVector.x;
@@ -133,26 +133,7 @@ public class PlayerController : MonoBehaviour
         ChangeState(PlayerState.inAir);
     }
 
-    /// <summary>
-    /// Get the input from the input manager
-    /// </summary>
-    /// <returns>A vector2 with the inputs of the player as the x and y values</returns>
-    private Vector2 GetDirInput()
-    {
-        //Define temp variables
-        float _xInput = 0;
-        float _yInput = 0;
 
-        //If the left or right key are pressed, affect the float 
-        if (Input.GetKey(playerInput.leftKey)) _xInput--;
-        if (Input.GetKey(playerInput.rightKey)) _xInput++;
-
-        //If the left or right key are pressed, affect the float 
-        if (Input.GetKey(playerInput.downKey)) _yInput--;
-        if (Input.GetKey(playerInput.upKey)) _yInput++;
-
-        return new Vector2(_xInput, _yInput);
-    }
 
     /// <summary>
     /// Affect the rigidbody's velocity

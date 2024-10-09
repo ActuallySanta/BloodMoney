@@ -6,10 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    Rigidbody2D rb;
-    float bulletLifetime = 0f;
+    public Rigidbody2D rb;
+    public float bulletLifetime = 0f;
 
-    GameObject owner;
+    public GameObject owner;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
     /// Destroy the bullet after a set amount of time
     /// </summary>
     /// <returns></returns>
-    private IEnumerator DestroyBullet()
+    public IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(bulletLifetime);
         Destroy(this.gameObject);

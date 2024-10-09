@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -28,6 +29,7 @@ public class WeaponController : MonoBehaviour
 
         gunObj = Instantiate(data.gunObj, gunPos);
         Debug.Log(gunObj.name);
+    
         firePoint = gunObj.transform.Find("FirePoint").transform;
         currAmmo = data.ammo;
     }
@@ -52,6 +54,7 @@ public class WeaponController : MonoBehaviour
     {
         canFire = false;
         currAmmo--;
+
         if (data.isHitscan)
         {
             //Do Hitscan Shot
@@ -66,16 +69,17 @@ public class WeaponController : MonoBehaviour
             bullet.transform.parent = null;
 
             //Get a reference to the script on the bullet that was initiated
-            Projectile bulletProjectile = GetComponent<Projectile>();
+            Projectile bulletProjectile = bullet.GetComponent<Projectile>();
 
-            //Initialize the bullet
-            bulletProjectile.InitializeBullet(data.bulletMoveSpeed, new Vector2(transform.localScale.x, transform.localScale.y),
-                data.bulletLifetime, transform.parent.gameObject);
-
-
+            
+            //Initialize the bullet (the hard way)
+            bulletProjectile.rb.AddForce(new Vector2(transform.localScale.x,0) * data.bulletMoveSpeed,
+                ForceMode2D.Impulse);
+            bulletProjectile.owner = this.gameObject;
+            bulletProjectile.bulletLifetime = data.bulletLifetime;
+            StartCoroutine(bulletProjectile.DestroyBullet());
         }
         yield return new WaitForSeconds(data.fireSpeed);
-        Debug.Log("Finished waitforseconds");
         canFire = true;
     }
 
@@ -109,4 +113,5 @@ public class WeaponController : MonoBehaviour
         currAmmo = data.ammo;
         isReloading = false;
     }
+
 }
