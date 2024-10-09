@@ -23,10 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
 
     //Reference to all the animations that the player can have (will be set by character selector)
-    public Animation idleAnim;
-    public Animation runningAnim;
-    public Animation dyingAnim;
-    public Animation jumpingAnim;
+    [SerializeField] CharacterData charData;
 
     //Ground Check stuff
     [SerializeField] LayerMask groundLayers;
@@ -55,6 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = false;
         ChangeState(PlayerState.idle);
+        anim = charData.charAnim;
     }
 
     // Update is called once per frame
@@ -161,22 +159,16 @@ public class PlayerController : MonoBehaviour
     /// <param name="_endingState">The state being switched to</param>
     private void ChangeState(PlayerState _endingState)
     {
-        /*
+        
         //Get the name of the starting animation from the state
         string startAnimName = currState.ToString(); //Convert the name to a string
+        Debug.Log(startAnimName);
         string[] subStrings = startAnimName.Split('.'); //Split the name at the .
+        
         startAnimName = subStrings[1];
 
-        anim.SetBool(startAnimName, false);
-
-        //Get the name of the ending animation from the state
-        string endingAnimName = _endingState.ToString(); //Convert the name to a string
-        string[] endSubStrings = endingAnimName.Split('.'); //Split the name at the .
-        endingAnimName = subStrings[1];
-
-        anim.SetBool(endingAnimName, true);
-        */
-
+        anim.Play(startAnimName);
+        
         currState = _endingState;
     }
 }
