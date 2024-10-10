@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelectMenuManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CharacterSelectMenuManager : MonoBehaviour
     [SerializeField] private TMP_Text p2CharacterName;
 
     [SerializeField] private Image p1SplashImage;
-    [SerializeField] private Image P2SplashImage;
+    [SerializeField] private Image p2SplashImage;
 
     [SerializeField] private CharacterData[] characterData;
 
@@ -37,21 +38,21 @@ public class CharacterSelectMenuManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        p1SplashImage.gameObject.SetActive(false);
+        p2SplashImage.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void ChooseCharacter(CharacterData _char)
     {
         if (currPlayer == currPlayerSelecting.playerOneSelecting)
         {
             p1CharacterName.text = _char.characterName;
-            p1SplashImage.sprite = _char.defaultSprite;
 
+            p1SplashImage.gameObject.SetActive(true);
+            p1SplashImage.sprite = _char.defaultSprite;
+            
             p1Data = _char;
             currPlayer = currPlayerSelecting.playerTwoSelecting;
             return;
@@ -60,7 +61,9 @@ public class CharacterSelectMenuManager : MonoBehaviour
         if (currPlayer == currPlayerSelecting.playerTwoSelecting)
         {
             p2CharacterName.text = _char.characterName;
-            P2SplashImage.sprite = _char.defaultSprite;
+
+            p2SplashImage.gameObject.SetActive(true);
+            p2SplashImage.sprite = _char.defaultSprite;
 
             p2Data = _char;
             return;
