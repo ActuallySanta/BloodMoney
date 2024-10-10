@@ -13,8 +13,10 @@ public class CharacterSelectMenuManager : MonoBehaviour
     [SerializeField] private Image p1SplashImage;
     [SerializeField] private Image p2SplashImage;
 
+    //All available Scriptable objects of type Character Data
     [SerializeField] private CharacterData[] characterData;
 
+    //The individual data that each player has
     private CharacterData p1Data;
     private CharacterData p2Data;
 
@@ -32,10 +34,15 @@ public class CharacterSelectMenuManager : MonoBehaviour
         hundredFiftyHealth,
         oneHealth,
     }
+    float startHealth;
+
     [SerializeField] private TMP_Text modeSelectText;
+
 
     gameMode selectedGameMode;
     currPlayerSelecting currPlayer;
+
+    [SerializeField] private BattleSceneManager battleManager;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +53,19 @@ public class CharacterSelectMenuManager : MonoBehaviour
         SelectGameMode(gameMode.hundredHealth);
     }
 
+    private void Update()
+    {
+        //If we have gotten past the all the menu scenes, its time to start the game
+        if (SceneManager.GetActiveScene().buildIndex < 3)
+        {
+            battleManager = Instantiate(battleManager, Vector2.zero, Quaternion.identity);
 
+            //Add all the player Data to the array of players
+            battleManager.playerCharData[0] = p1Data;
+            battleManager.playerCharData[1] = p2Data;
+            battleManager.startingHealth = startHealth;
+        }
+    }
 
     public void ChooseCharacter(CharacterData _char)
     {
@@ -108,22 +127,27 @@ public class CharacterSelectMenuManager : MonoBehaviour
         {
             case gameMode.fiftyHealth:
                 modeSelectText.text = "Selected Mode: 50 Health";
+                startHealth = 50;
                 break;
 
             case gameMode.hundredFiftyHealth:
                 modeSelectText.text = "Selected Mode: 150 Health";
+                startHealth = 150;
                 break;
 
             case gameMode.twentyFiveHealth:
                 modeSelectText.text = "Selected Mode: 25 Health";
+                startHealth = 25;
                 break;
 
             case gameMode.hundredHealth:
                 modeSelectText.text = "Selected Mode: 100 Health";
+                startHealth = 100;
                 break;
 
             case gameMode.oneHealth:
                 modeSelectText.text = "Selected Mode: 1 Health";
+                startHealth = 1;
                 break;
         }
     }

@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
 
     //Reference to all the animations that the player can have (will be set by character selector)
-    [SerializeField] CharacterData charData;
+    public CharacterData charData;
 
     //Ground Check stuff
     [SerializeField] LayerMask groundLayers;
