@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ddbfc9908069b149ba4a040fbd0afba, type: 3}
-  m_Name: Rifle
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  gunName: Rifle
-  ammo: 30
-  reloadTime: 1
-  fireSpeed: 0.25
+  gunName: Shotgun
+  ammo: 8
+  reloadTime: 2
+  fireSpeed: 0.5
   damage: 20
   bulletMoveSpeed: 20
   bulletLifetime: 2
-  bulletCount: 3
+  bulletCount: 1
   timeBetweenShots: 0
   burstCount: 1
-  gunObj: {fileID: 6745642188917762772, guid: 4e3db07540fbebc4dae40d6aa142b260, type: 3}
-  projectileObj: {fileID: 4909437568491694924, guid: c52d23ceb8ef18e4fa03d7786c8ffd03, type: 3}
+  gunObj: {fileID: 0}
+  projectileObj: {fileID: 0}
   isHitscan: 0

@@ -26,9 +26,8 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-
         gunObj = Instantiate(data.gunObj, gunPos);
-    
+
         firePoint = gunObj.transform.Find("FirePoint").transform;
         currAmmo = data.ammo;
     }
@@ -60,8 +59,21 @@ public class WeaponController : MonoBehaviour
         }
         else
         {
-            //TODO Physical Bullet null reference exception
+            //Projectile Shot
+            for (int i = 0; i < data.burstCount; i++)
+            {
+                ProjectileShot();
+                yield return new WaitForSeconds(data.timeBetweenShots);
+            }
+        }
+        yield return new WaitForSeconds(data.fireSpeed);
+        canFire = true;
+    }
 
+    private void ProjectileShot()
+    {
+        for (int i = 0; i < data.bulletCount; i++)
+        {
             //Instantiate the bullet and get a reference of the bullet
             GameObject bullet = Instantiate(data.projectileObj, firePoint.transform);
 
@@ -70,16 +82,16 @@ public class WeaponController : MonoBehaviour
             //Get a reference to the script on the bullet that was initiated
             Projectile bulletProjectile = bullet.GetComponent<Projectile>();
 
-            
+
             //Initialize the bullet (the hard way)
-            bulletProjectile.rb.AddForce(new Vector2(transform.localScale.x,0) * data.bulletMoveSpeed,
+            bulletProjectile.rb.AddForce(new Vector2(transform.localScale.x, 0) * data.bulletMoveSpeed,
                 ForceMode2D.Impulse);
+            
             bulletProjectile.owner = this.gameObject;
+
             bulletProjectile.bulletLifetime = data.bulletLifetime;
             StartCoroutine(bulletProjectile.DestroyBullet());
         }
-        yield return new WaitForSeconds(data.fireSpeed);
-        canFire = true;
     }
 
     /// <summary>
