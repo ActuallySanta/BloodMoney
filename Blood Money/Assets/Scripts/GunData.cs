@@ -17,6 +17,8 @@ public class GunData : ScriptableObject
     public float timeBetweenShots = 0f;
     public float burstCount = 1f;
 
+    public float healthCost = 20f;
+
     public GameObject gunObj;
     public GameObject projectileObj;
 
