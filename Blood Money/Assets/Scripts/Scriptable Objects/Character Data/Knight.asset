@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226d4d592af69e34f9e235c82b2c7907, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  characterName: 
-  defaultSprite: {fileID: 0}
+  characterName: Knight
+  defaultSprite: {fileID: 21300000, guid: e8cf4af6ed647cd43b71ccfc012c6947, type: 3}
   characterPanelArt: {fileID: 0}
-  charAnim: {fileID: 0}
+  charAnim: {fileID: 9100000, guid: ad16d69d818d47847b2541974e9e4e11, type: 2}

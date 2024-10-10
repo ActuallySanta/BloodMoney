@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226d4d592af69e34f9e235c82b2c7907, type: 3}
   m_Name: Wizard
   m_EditorClassIdentifier: 
-  characterName: 
-  defaultSprite: {fileID: 0}
+  characterName: Wizard
+  defaultSprite: {fileID: 21300000, guid: 3c62cec795ab9f94eb75de612647dd06, type: 3}
   characterPanelArt: {fileID: 0}
-  charAnim: {fileID: 0}
+  charAnim: {fileID: 9100000, guid: 8eaf391f83c9ce2418978a0ec35a3a07, type: 2}

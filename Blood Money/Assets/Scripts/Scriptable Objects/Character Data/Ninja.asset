@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226d4d592af69e34f9e235c82b2c7907, type: 3}
   m_Name: Ninja
   m_EditorClassIdentifier: 
-  characterName: 
-  defaultSprite: {fileID: 0}
+  characterName: Ninja
+  defaultSprite: {fileID: 21300000, guid: b38260be698a1194eb315d31ffd76985, type: 3}
   characterPanelArt: {fileID: 0}
-  charAnim: {fileID: 0}
+  charAnim: {fileID: 9100000, guid: a37c8b06e48e4544c9cbc3b76f26efae, type: 2}

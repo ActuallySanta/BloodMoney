@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cowboy
   m_EditorClassIdentifier: 
   characterName: Cowboy
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 21300000, guid: 4a10f464d6aac8d4b852b75b08a4e2de, type: 3}
   characterPanelArt: {fileID: 0}
   charAnim: {fileID: 9100000, guid: dd1b0c3fbc4e948498dcb63a88aaf8bb, type: 2}

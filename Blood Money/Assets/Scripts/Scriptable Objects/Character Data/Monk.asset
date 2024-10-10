@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226d4d592af69e34f9e235c82b2c7907, type: 3}
   m_Name: Monk
   m_EditorClassIdentifier: 
-  characterName: 
-  defaultSprite: {fileID: 0}
+  characterName: Monk
+  defaultSprite: {fileID: 21300000, guid: 962c55240c12e7b499502fde3454b215, type: 3}
   characterPanelArt: {fileID: 0}
-  charAnim: {fileID: 0}
+  charAnim: {fileID: 9100000, guid: dc03e9f753bdb384782b7be63dd8edbd, type: 2}
