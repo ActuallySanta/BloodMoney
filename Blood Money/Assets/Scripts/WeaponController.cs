@@ -28,7 +28,6 @@ public class WeaponController : MonoBehaviour
     {
 
         gunObj = Instantiate(data.gunObj, gunPos);
-        Debug.Log(gunObj.name);
     
         firePoint = gunObj.transform.Find("FirePoint").transform;
         currAmmo = data.ammo;

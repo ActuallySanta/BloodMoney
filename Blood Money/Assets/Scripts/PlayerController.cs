@@ -51,8 +51,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isGrounded = false;
+        
+        anim.runtimeAnimatorController = charData.charAnim;
+
         ChangeState(PlayerState.idle);
-        anim = charData.charAnim;
     }
 
     // Update is called once per frame
@@ -162,12 +164,11 @@ public class PlayerController : MonoBehaviour
         
         //Get the name of the starting animation from the state
         string startAnimName = currState.ToString(); //Convert the name to a string
-        Debug.Log(startAnimName);
-        string[] subStrings = startAnimName.Split('.'); //Split the name at the .
-        
-        startAnimName = subStrings[1];
 
-        anim.Play(startAnimName);
+        anim.SetBool(startAnimName,false);
+
+        string endingAnimName = _endingState.ToString();
+        anim.SetBool(endingAnimName, true);
         
         currState = _endingState;
     }
