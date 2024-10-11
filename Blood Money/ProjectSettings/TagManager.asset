@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BattleSceneManager
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX

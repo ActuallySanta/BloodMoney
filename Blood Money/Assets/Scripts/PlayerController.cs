@@ -30,13 +30,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform floorPos;
     bool isGrounded;
 
-    enum PlayerState
+    public enum PlayerState
     {
         idle,
         moving,
         inAir,
         dead,
         dying,
+        hurt,
     }
 
     PlayerState currState = PlayerState.idle;
@@ -47,11 +48,10 @@ public class PlayerController : MonoBehaviour
     //The direction the sprite is facing
     float facingDir = 1;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         isGrounded = false;
-        
+
         anim.runtimeAnimatorController = charData.charAnim;
 
         ChangeState(PlayerState.idle);
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
         //Wait a second to make sure the player is not on the ground
         yield return new WaitForSeconds(.01f);
-        
+
         //Change the state
         ChangeState(PlayerState.inAir);
     }
@@ -159,17 +159,17 @@ public class PlayerController : MonoBehaviour
     /// Switch the state and affect relevant systems
     /// </summary>
     /// <param name="_endingState">The state being switched to</param>
-    private void ChangeState(PlayerState _endingState)
+    public void ChangeState(PlayerState _endingState)
     {
-        
+
         //Get the name of the starting animation from the state
         string startAnimName = currState.ToString(); //Convert the name to a string
 
-        anim.SetBool(startAnimName,false);
+        anim.SetBool(startAnimName, false);
 
         string endingAnimName = _endingState.ToString();
         anim.SetBool(endingAnimName, true);
-        
+
         currState = _endingState;
     }
 }

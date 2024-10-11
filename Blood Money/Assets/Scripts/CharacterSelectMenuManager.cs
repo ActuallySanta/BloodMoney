@@ -45,6 +45,8 @@ public class CharacterSelectMenuManager : MonoBehaviour
 
     [SerializeField] private BattleSceneManager battleManager;
 
+    public GameObject levelObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,7 @@ public class CharacterSelectMenuManager : MonoBehaviour
             battleManager.playerCharData.Add(p1Data);
             battleManager.playerCharData.Add(p2Data);
             battleManager.startingHealth = startHealth;
+            battleManager.levelObjects = levelObject;
 
             Destroy(gameObject);
             Debug.Log("Destroyed Self");

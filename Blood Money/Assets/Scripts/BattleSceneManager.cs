@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class BattleSceneManager : MonoBehaviour
 {
 
-    [HideInInspector] public List<CharacterData> playerCharData = new List<CharacterData>();
+    public List<CharacterData> playerCharData = new List<CharacterData>();
 
     [Header("Player Spawning")]
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform[] playerSpawnpoints;
+    [SerializeField] private List<Transform> playerSpawnpoints = new List<Transform>();
 
     [Header("UI Stuff")]
     [SerializeField] private TMP_Text roundStartText;
@@ -26,7 +26,7 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private GameObject itemShopParent;
 
     [Header("Round Start")]
-    [SerializeField] private float timeBetweenCountdowns = .5f;
+    [SerializeField] private float timeBetweenCountdowns = 5f;
 
     private List<GameObject> activePlayers = new List<GameObject>();
 
@@ -34,9 +34,25 @@ public class BattleSceneManager : MonoBehaviour
 
     [HideInInspector] public float startingHealth;
 
-    bool isPlaying = false;
+    [HideInInspector] public GameObject levelObjects;
 
+    bool isPlaying = false;
+    bool isStarting = false;
     int roundCount = 0;
+
+    public static BattleSceneManager instance { get; private set; }
+
+    //Set the singleton on instantiation
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -54,22 +70,27 @@ public class BattleSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currPlayerSelecting >= itemSelectMenuParents.Length && !isPlaying)
+        if (currPlayerSelecting >= itemSelectMenuParents.Length && !isPlaying && !isStarting)
         {
             Debug.Log("Ended Buy Phase");
-            isPlaying = true;
             OnRoundStart();
+            return;
         }
 
-        if (!isPlaying)
+        if (!isPlaying && !isStarting)
         {
             ShowMenu();
         }
 
-        if (activePlayers.Count == 0 && isPlaying)
+
+        //If there is 1 or less players remaing (to account for a draw) end the game
+        /*
+        if (activePlayers.Count < 0 && isPlaying)
         {
+            Debug.Log("Ended Round");
             EndRound();
         }
+        */
 
         if (isPlaying)
         {
@@ -102,18 +123,25 @@ public class BattleSceneManager : MonoBehaviour
 
     void OnRoundStart()
     {
+        currPlayerSelecting = 0;
+        isStarting = true;
+
         //Clear all active itemSelectMenus
         foreach (GameObject menu in itemSelectMenuParents)
         {
             menu.SetActive(false);
         }
 
+        itemShopParent.SetActive(false);
+
+        LoadLevel(levelObjects);
+
         //Spawn player for each player that was defined
         for (int i = 0; i < playerCharData.Count; i++)
         {
             Debug.Log("Made it to the round start");
-            break;
 
+            //TODO ADD RESPAWNPOINTS
             //Instantiate each player
             GameObject player = Instantiate(playerPrefab, playerSpawnpoints[i].position,
                 Quaternion.identity, this.gameObject.transform);
@@ -133,7 +161,41 @@ public class BattleSceneManager : MonoBehaviour
             activePlayers.Add(player);
         }
 
+        StartCoroutine(DoCountdown());
+    }
+
+    private IEnumerator DoCountdown()
+    {
+        roundStartText.gameObject.SetActive(true);
+        roundStartText.text = "3";
+
+        yield return new WaitForSeconds(timeBetweenCountdowns);
+        roundStartText.text = "2";
+
+        yield return new WaitForSeconds(timeBetweenCountdowns);
+        roundStartText.text = "1";
+
+        yield return new WaitForSeconds(timeBetweenCountdowns);
+        roundStartText.text = "FIGHT!";
+
+        yield return new WaitForSeconds(timeBetweenCountdowns);
+        roundStartText.gameObject.SetActive(false);
+        isStarting = false;
         isPlaying = true;
+    }
+
+    private void LoadLevel(GameObject _levelObjects)
+    {
+        GameObject levelGeo = Instantiate(_levelObjects, new Vector3(0, 0, 0), Quaternion.identity);
+
+        //Loop through all child objects and add the ones with the Spawnpoint tag to the active list
+        for (int i = 0; i < levelGeo.transform.childCount; i++)
+        {
+            if (levelGeo.transform.GetChild(i).tag == "Spawnpoint")
+            {
+                playerSpawnpoints.Add(levelGeo.transform.GetChild(i));
+            }
+        }
     }
 
     public void ChangeSelectedPlayer()
