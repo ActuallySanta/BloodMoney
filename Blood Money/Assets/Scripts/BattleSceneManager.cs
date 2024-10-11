@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class BattleSceneManager : MonoBehaviour
 {
 
-    [HideInInspector] public CharacterData[] playerCharData;
+    [HideInInspector] public List<CharacterData> playerCharData = new List<CharacterData>();
 
     [Header("Player Spawning")]
     [SerializeField] private GameObject playerPrefab;
@@ -22,8 +22,8 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private Slider[] playerHealthSliders;
 
     [Header("Player Shop Objects")]
-    [SerializeField] private GameObject p1ItemSelectMenuParent;
-    [SerializeField] private GameObject p2ItemSelectMenuParent;
+    [SerializeField] private GameObject[] itemSelectMenuParents;
+    [SerializeField] private GameObject itemShopParent;
 
     [Header("Round Start")]
     [SerializeField] private float timeBetweenCountdowns = .5f;
@@ -41,12 +41,31 @@ public class BattleSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        p2ItemSelectMenuParent.SetActive(false);
+        foreach (GameObject menu in itemSelectMenuParents)
+        {
+            menu.SetActive(false);
+        }
+
+        ShowMenu();
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
+        if (currPlayerSelecting >= itemSelectMenuParents.Length && !isPlaying)
+        {
+            Debug.Log("Ended Buy Phase");
+            isPlaying = true;
+            OnRoundStart();
+        }
+
+        if (!isPlaying)
+        {
+            ShowMenu();
+        }
+
         if (activePlayers.Count == 0 && isPlaying)
         {
             EndRound();
@@ -63,6 +82,18 @@ public class BattleSceneManager : MonoBehaviour
         }
     }
 
+    private void ShowMenu()
+    {
+        itemShopParent.SetActive(true);
+        foreach (GameObject menu in itemSelectMenuParents)
+        {
+            menu.SetActive(false);
+        }
+
+        itemSelectMenuParents[currPlayerSelecting].SetActive(true);
+
+    }
+
     private void EndRound()
     {
         isPlaying = false;
@@ -71,29 +102,49 @@ public class BattleSceneManager : MonoBehaviour
 
     void OnRoundStart()
     {
-        p1ItemSelectMenuParent.SetActive(false);
-        p2ItemSelectMenuParent.SetActive(false);
+        //Clear all active itemSelectMenus
+        foreach (GameObject menu in itemSelectMenuParents)
+        {
+            menu.SetActive(false);
+        }
 
         //Spawn player for each player that was defined
-        for (int i = 0; i < playerCharData.Length; i++)
+        for (int i = 0; i < playerCharData.Count; i++)
         {
+            Debug.Log("Made it to the round start");
+            break;
+
             //Instantiate each player
             GameObject player = Instantiate(playerPrefab, playerSpawnpoints[i].position,
                 Quaternion.identity, this.gameObject.transform);
 
+            //Get references to the player controller,player input manager, and the health manager
             PlayerController pController = player.GetComponent<PlayerController>();
             PlayerHealthManager pHManager = player.GetComponent<PlayerHealthManager>();
+            PlayerInputController pInputController = player.GetComponent<PlayerInputController>();
 
+            //Set data to each instance of the player
             pHManager.maxHealth = startingHealth;
 
             pController.charData = playerCharData[i];
+            pInputController.playerInd = i;
 
+            //Add each player to a list containing all active players
             activePlayers.Add(player);
         }
 
         isPlaying = true;
     }
 
+    public void ChangeSelectedPlayer()
+    {
+        currPlayerSelecting++;
+
+        foreach (GameObject menu in itemSelectMenuParents)
+        {
+            menu.SetActive(false);
+        }
+    }
 
     public void RemovePlayerFromActiveList(GameObject _playerToRemove)
     {

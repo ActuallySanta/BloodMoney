@@ -23,7 +23,8 @@ public class CharacterSelectMenuManager : MonoBehaviour
     public enum currPlayerSelecting
     {
         playerOneSelecting,
-        playerTwoSelecting
+        playerTwoSelecting,
+        bothPlayersSelected
     };
 
     public enum gameMode
@@ -38,7 +39,7 @@ public class CharacterSelectMenuManager : MonoBehaviour
 
     [SerializeField] private TMP_Text modeSelectText;
 
-
+    //Enum values
     gameMode selectedGameMode;
     currPlayerSelecting currPlayer;
 
@@ -56,14 +57,23 @@ public class CharacterSelectMenuManager : MonoBehaviour
     private void Update()
     {
         //If we have gotten past the all the menu scenes, its time to start the game
-        if (SceneManager.GetActiveScene().buildIndex < 3)
+        if (SceneManager.GetActiveScene().buildIndex > 3)
         {
             battleManager = Instantiate(battleManager, Vector2.zero, Quaternion.identity);
 
             //Add all the player Data to the array of players
-            battleManager.playerCharData[0] = p1Data;
-            battleManager.playerCharData[1] = p2Data;
+            battleManager.playerCharData.Add(p1Data);
+            battleManager.playerCharData.Add(p2Data);
             battleManager.startingHealth = startHealth;
+
+            Destroy(gameObject);
+            Debug.Log("Destroyed Self");
+            return;
+        }
+
+        if (currPlayer == currPlayerSelecting.bothPlayersSelected)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -89,6 +99,7 @@ public class CharacterSelectMenuManager : MonoBehaviour
             p2SplashImage.sprite = _char.defaultSprite;
 
             p2Data = _char;
+            currPlayer = currPlayerSelecting.bothPlayersSelected;
             return;
         }
     }

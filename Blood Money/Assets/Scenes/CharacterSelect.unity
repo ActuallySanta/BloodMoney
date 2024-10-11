@@ -2945,9 +2945,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e4b9affe897a5be4dacdb9d9de9cb18e, type: 2}
   - {fileID: 11400000, guid: 247b82c71b18f15479366ad3ab7e9b84, type: 2}
   - {fileID: 11400000, guid: b65a146c0bb3bd449a1b653b7a9d575f, type: 2}
-  p1Data: {fileID: 0}
-  p2Data: {fileID: 0}
   modeSelectText: {fileID: 1093584182}
+  battleManager: {fileID: 1365656896646078009, guid: f2e97961e233d494788d6482d8228607, type: 3}
 --- !u!4 &1396085602
 Transform:
   m_ObjectHideFlags: 0
