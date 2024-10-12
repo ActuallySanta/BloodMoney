@@ -17,6 +17,7 @@ public class PlayerHealthManager : MonoBehaviour
     void Start()
     {
         pController = GetComponent<PlayerController>();
+        currHealth = maxHealth;
     }
 
     // Update is called once per frame

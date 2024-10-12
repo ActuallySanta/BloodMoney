@@ -9,7 +9,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private PlayerInputController playerInput;
 
     //The scriptable object holding all the weapon's information
-    [SerializeField] private GunData data;
+    public GunData data;
 
     //The point where the bullet will be instantiated
     [SerializeField] Transform firePoint;
@@ -88,6 +88,8 @@ public class WeaponController : MonoBehaviour
                 ForceMode2D.Impulse);
             
             bulletProjectile.owner = this.gameObject;
+
+            bulletProjectile.bulletDamage = data.damage;
 
             bulletProjectile.bulletLifetime = data.bulletLifetime;
             StartCoroutine(bulletProjectile.DestroyBullet());

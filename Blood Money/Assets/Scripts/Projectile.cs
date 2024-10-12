@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     public float bulletLifetime = 0f;
 
     public GameObject owner;
-
+    public float bulletDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,5 +49,17 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(bulletLifetime);
         Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerHealthManager enemyHealthManager =  collision.gameObject.GetComponent<PlayerHealthManager>();
+
+        if (enemyHealthManager != null)
+        {
+            enemyHealthManager.TakeDamage(bulletDamage);
+        }
+
+        Destroy(this);
     }
 }

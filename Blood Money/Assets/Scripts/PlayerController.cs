@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -48,12 +49,12 @@ public class PlayerController : MonoBehaviour
     //The direction the sprite is facing
     float facingDir = 1;
 
-    void Awake()
+    void Start()
     {
         isGrounded = false;
-
+        
+        anim = playerSprite.GetComponent<Animator>();
         anim.runtimeAnimatorController = charData.charAnim;
-
         ChangeState(PlayerState.idle);
     }
 
@@ -153,6 +154,11 @@ public class PlayerController : MonoBehaviour
     private bool CheckForGround()
     {
         return Physics2D.Raycast(floorPos.position, Vector2.down, 0.1f, groundLayers);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(floorPos.position, new Vector2(floorPos.position.x, floorPos.position.y - .1f), Color.green);
     }
 
     /// <summary>

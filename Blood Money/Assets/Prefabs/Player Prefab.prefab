@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7431154700561166119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorCheckPos
   m_TagString: Untagged
-  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7431154700561166116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalPosition: {x: 0, y: -1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7431154700632942721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunPos
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 7431154701043876966}
   - component: {fileID: 7431154701043876960}
   - component: {fileID: 443779091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 7431154702507195357}
   - component: {fileID: 3958544535580713259}
   - component: {fileID: 916246850591663322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,9 +251,9 @@ MonoBehaviour:
   inAirSpeed: 3.5
   playerInput: {fileID: 7431154702507195356}
   playerSprite: {fileID: 7431154701043876966}
-  anim: {fileID: 7431154701043876960}
+  anim: {fileID: 0}
   rb: {fileID: 7431154702507195357}
-  charData: {fileID: 11400000, guid: e1679fa69531ae0498f197aeb0674c0e, type: 2}
+  charData: {fileID: 0}
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -326,3 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5a98acc4289ba4c882004cd9e970fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currHealth: 0
+  maxHealth: 0
+  invicibilityTimer: 1.5
+  canBeHit: 1

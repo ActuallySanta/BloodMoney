@@ -9,6 +9,8 @@ public class BattleSceneManager : MonoBehaviour
 {
 
     public List<CharacterData> playerCharData = new List<CharacterData>();
+    public List<GunData> playerGunData = new List<GunData>();
+    public float[] playerStartingHealth = new float[2];
 
     [Header("Player Spawning")]
     [SerializeField] private GameObject playerPrefab;
@@ -31,8 +33,8 @@ public class BattleSceneManager : MonoBehaviour
     private List<GameObject> activePlayers = new List<GameObject>();
 
     int currPlayerSelecting = 0;
-
-    [HideInInspector] public float startingHealth;
+    
+    public float startingHealth;
 
     [HideInInspector] public GameObject levelObjects;
 
@@ -60,6 +62,11 @@ public class BattleSceneManager : MonoBehaviour
         foreach (GameObject menu in itemSelectMenuParents)
         {
             menu.SetActive(false);
+        }
+
+        for (int i = 0; i < playerCharData.Count; i++)
+        {
+            playerStartingHealth[i] = startingHealth;
         }
 
         ShowMenu();
@@ -150,10 +157,11 @@ public class BattleSceneManager : MonoBehaviour
             PlayerController pController = player.GetComponent<PlayerController>();
             PlayerHealthManager pHManager = player.GetComponent<PlayerHealthManager>();
             PlayerInputController pInputController = player.GetComponent<PlayerInputController>();
+            WeaponController pWeapon = player.GetComponent<WeaponController>();
 
             //Set data to each instance of the player
-            pHManager.maxHealth = startingHealth;
-
+            pHManager.maxHealth = playerStartingHealth[i];
+            pWeapon.data = playerGunData[i];
             pController.charData = playerCharData[i];
             pInputController.playerInd = i;
 
@@ -211,5 +219,37 @@ public class BattleSceneManager : MonoBehaviour
     public void RemovePlayerFromActiveList(GameObject _playerToRemove)
     {
         activePlayers.Remove(_playerToRemove);
+    }
+
+    /// <summary>
+    /// The method called by the UI Button to select which gun the player is currently buying
+    /// </summary>
+    /// <param name="_data">The gun the player is selecting</param>
+    public void PlayerBuyGun(GunData _data)
+    {
+        
+
+        if (currPlayerSelecting == 0)
+        {
+            playerGunData.Insert(0, _data);
+
+            if (playerStartingHealth[0] != startingHealth)
+            {
+                playerStartingHealth[0] = startingHealth;
+            }
+
+            playerStartingHealth[0] -= _data.healthCost;
+        }
+        else if (currPlayerSelecting == 1)
+        {
+            playerGunData.Insert(1, _data);
+
+            if (playerStartingHealth[1] != startingHealth)
+            {
+                playerStartingHealth[1] = startingHealth;
+            }
+
+            playerStartingHealth[1] -= _data.healthCost;
+        }
     }
 }
