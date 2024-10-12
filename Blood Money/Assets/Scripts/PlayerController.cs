@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case PlayerState.dying:
-
+                //TODO ADD TRANSITION FROM DYING TO DEAD
                 break;
 
             case PlayerState.dead:

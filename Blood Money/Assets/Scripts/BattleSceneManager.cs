@@ -171,7 +171,6 @@ public class BattleSceneManager : MonoBehaviour
         {
             Debug.Log("Made it to the round start");
 
-            //TODO ADD RESPAWNPOINTS
             //Instantiate each player
             GameObject player = Instantiate(playerPrefab, playerSpawnpoints[i].position,
                 Quaternion.identity, this.gameObject.transform);
