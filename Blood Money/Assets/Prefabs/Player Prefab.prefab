@@ -314,6 +314,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 9f07ac5c65e8c8d40a9e389008e5d604, type: 2}
   firePoint: {fileID: 0}
   gunPos: {fileID: 7431154700632942721}
+  muzzleFlashPrefab: {fileID: 4382636144936950790, guid: 226d9cee965d8ce498fb4c490de5fc1e, type: 3}
   damageableLayers:
     serializedVersion: 2
     m_Bits: 256

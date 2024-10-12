@@ -16,6 +16,7 @@ public class WeaponController : MonoBehaviour
 
     //The point where the gun sprite will be instantiated
     [SerializeField] Transform gunPos;
+    [SerializeField] GameObject muzzleFlashPrefab;
 
     float currAmmo;
 
@@ -56,6 +57,8 @@ public class WeaponController : MonoBehaviour
         currAmmo--;
 
         yield return new WaitForSeconds(data.chargeUpTime);
+
+        Instantiate(muzzleFlashPrefab, firePoint.position, Quaternion.identity);
 
         if (data.isHitscan)
         {
@@ -161,8 +164,6 @@ public class WeaponController : MonoBehaviour
 
             bulletProjectile.bulletDamage = data.damage;
 
-            bulletProjectile.bulletLifetime = data.bulletLifetime;
-            StartCoroutine(bulletProjectile.DestroyBullet());
         }
     }
 

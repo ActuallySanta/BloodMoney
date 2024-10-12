@@ -18,10 +18,14 @@ MonoBehaviour:
   fireSpeed: 0.25
   damage: 20
   bulletMoveSpeed: 20
-  bulletLifetime: 2
   bulletCount: 3
-  timeBetweenShots: 0
+  timeBetweenShots: 0.25
   burstCount: 1
+  chargeUpTime: 0
+  hitscanSize: 0
+  damageFalloffMultiplier: 1
+  healthCost: 20
   gunObj: {fileID: 6745642188917762772, guid: 4e3db07540fbebc4dae40d6aa142b260, type: 3}
   projectileObj: {fileID: 4909437568491694924, guid: c52d23ceb8ef18e4fa03d7786c8ffd03, type: 3}
   isHitscan: 0
+  hasDamageFallOff: 0

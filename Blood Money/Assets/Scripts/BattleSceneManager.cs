@@ -31,8 +31,9 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private GameObject[] itemSelectMenuParents;
     [SerializeField] private GameObject itemShopParent;
 
-    [Header("Round Start")]
+    [Header("Display Timers")]
     [SerializeField] private float timeBetweenCountdowns = 5f;
+    [SerializeField] private float winScreenDisplayTime = 5f;
 
     private List<GameObject> activePlayers = new List<GameObject>();
 
@@ -53,7 +54,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
@@ -73,6 +74,9 @@ public class BattleSceneManager : MonoBehaviour
             playerStartingHealth[i] = startingHealth;
         }
 
+        p1CharacterName.gameObject.SetActive(false);
+        p2CharacterName.gameObject.SetActive(false);
+
         ShowMenu();
     }
 
@@ -81,6 +85,8 @@ public class BattleSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        roundCountText.text = "ROUND: " + roundCount;
+
         if (currPlayerSelecting >= itemSelectMenuParents.Length && !isPlaying && !isStarting)
         {
             Debug.Log("Ended Buy Phase");
@@ -94,14 +100,14 @@ public class BattleSceneManager : MonoBehaviour
         }
 
 
-        //If there is 1 or less players remaing (to account for a draw) end the game
-        /*
-        if (activePlayers.Count < 0 && isPlaying)
+        //If there is 1 or less players remaining (to account for a draw) end the game
+        
+        if (activePlayers.Count <= 1 && isPlaying)
         {
             Debug.Log("Ended Round");
-            EndRound();
+            StartCoroutine(EndRound());
         }
-        */
+        
 
         if (isPlaying)
         {
@@ -126,9 +132,22 @@ public class BattleSceneManager : MonoBehaviour
 
     }
 
-    private void EndRound()
+    private IEnumerator EndRound()
     {
         isPlaying = false;
+        isStarting = true;
+
+        foreach (GameObject player in activePlayers)
+        {
+            Destroy(player);
+        }
+
+        roundStartText.gameObject.SetActive(true);
+        roundStartText.text = activePlayers[0].GetComponent<PlayerController>().charData.name + " WINS!";
+
+        yield return new WaitForSeconds(winScreenDisplayTime);
+        isStarting = false;
+        roundStartText.gameObject.SetActive(false);
         roundCount++;
     }
 
@@ -173,9 +192,15 @@ public class BattleSceneManager : MonoBehaviour
             activePlayers.Add(player);
         }
 
+        p1CharacterName.gameObject.SetActive(true);
+        p2CharacterName.gameObject.SetActive(true);
+
+        p1CharacterName.text = playerCharData[0].name.ToUpper();
+        p2CharacterName.text = playerCharData[1].name.ToUpper();
+
         for (int i = 0; i < playerHealthSliders.Length; i++)
         {
-            playerHealthSliders[i].maxValue = playerStartingHealth[i];
+            playerHealthSliders[i].maxValue = startingHealth;
             playerHealthSliders[i].value = playerStartingHealth[i];
         }
 
@@ -251,6 +276,7 @@ public class BattleSceneManager : MonoBehaviour
             p1SelectedWeaponText.text = "Selected: " + _data.name;
 
             playerStartingHealth[0] -= _data.healthCost;
+            p1CurrentHealthText.text = "Current Health: " + playerStartingHealth[0];
         }
         else if (currPlayerSelecting == 1)
         {
@@ -264,6 +290,7 @@ public class BattleSceneManager : MonoBehaviour
             playerStartingHealth[1] -= _data.healthCost;
 
             p2SelectedWeaponText.text = "Selected: " + _data.name;
+            p2CurrentHealthText.text = "Current Health: " + playerStartingHealth[1];
         }
     }
 }

@@ -18,7 +18,6 @@ MonoBehaviour:
   fireSpeed: 0.1
   damage: 80
   bulletMoveSpeed: 5
-  bulletLifetime: 2
   bulletCount: 1
   timeBetweenShots: 0
   burstCount: 1
