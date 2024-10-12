@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerHealthManager enemyHealthManager =  collision.gameObject.GetComponent<PlayerHealthManager>();
+        PlayerHealthManager enemyHealthManager =  collision.gameObject.GetComponentInParent<PlayerHealthManager>();
 
         if (enemyHealthManager != null)
         {

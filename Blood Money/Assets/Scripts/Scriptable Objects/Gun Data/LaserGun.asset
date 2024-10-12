@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ddbfc9908069b149ba4a040fbd0afba, type: 3}
-  m_Name: Shotgun
+  m_Name: LaserGun
   m_EditorClassIdentifier: 
-  gunName: Shotgun
-  ammo: 8
-  reloadTime: 2
-  fireSpeed: 0.5
-  damage: 80
+  gunName: Laser Gun
+  ammo: 1
+  reloadTime: 0.75
+  fireSpeed: 0.1
+  damage: 100
   bulletMoveSpeed: 20
   bulletLifetime: 2
   bulletCount: 1
   timeBetweenShots: 0
   burstCount: 1
-  chargeUpTime: 0
-  hitscanSize: 0.1
+  chargeUpTime: 0.25
+  hitscanSize: 0
   damageFalloffMultiplier: 1
-  healthCost: 40
-  gunObj: {fileID: 7618623973251663856, guid: a7973fe89bad2b542acb91b39eafbbe5, type: 3}
+  healthCost: 80
+  gunObj: {fileID: 1679373761293468436, guid: ac94f7495655b184c948f32b774f46cc, type: 3}
   projectileObj: {fileID: 0}
   isHitscan: 1
-  hasDamageFallOff: 1
+  hasDamageFallOff: 0

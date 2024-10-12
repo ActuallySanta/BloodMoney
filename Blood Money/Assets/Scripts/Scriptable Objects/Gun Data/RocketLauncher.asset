@@ -12,16 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddbfc9908069b149ba4a040fbd0afba, type: 3}
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
-  gunName: Gun
+  gunName: Rocket Launcher
   ammo: 1
   reloadTime: 2
   fireSpeed: 0.1
-  damage: 20
-  bulletMoveSpeed: 20
+  damage: 80
+  bulletMoveSpeed: 5
   bulletLifetime: 2
   bulletCount: 1
   timeBetweenShots: 0
   burstCount: 1
-  gunObj: {fileID: 0}
+  chargeUpTime: 0
+  hitscanSize: 0.1
+  damageFalloffMultiplier: 1
+  healthCost: 60
+  gunObj: {fileID: 8958452731613207819, guid: 44c4ff737bb11bd438395872a3c4344f, type: 3}
   projectileObj: {fileID: 0}
   isHitscan: 0
+  hasDamageFallOff: 0

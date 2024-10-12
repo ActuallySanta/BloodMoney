@@ -22,6 +22,10 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private TMP_Text p2CharacterName;
     [SerializeField] private TMP_Text roundCountText;
     [SerializeField] private Slider[] playerHealthSliders;
+    [SerializeField] private TMP_Text p1SelectedWeaponText;
+    [SerializeField] private TMP_Text p2SelectedWeaponText;
+    [SerializeField] private TMP_Text p1CurrentHealthText;
+    [SerializeField] private TMP_Text p2CurrentHealthText;
 
     [Header("Player Shop Objects")]
     [SerializeField] private GameObject[] itemSelectMenuParents;
@@ -169,6 +173,12 @@ public class BattleSceneManager : MonoBehaviour
             activePlayers.Add(player);
         }
 
+        for (int i = 0; i < playerHealthSliders.Length; i++)
+        {
+            playerHealthSliders[i].maxValue = playerStartingHealth[i];
+            playerHealthSliders[i].value = playerStartingHealth[i];
+        }
+
         StartCoroutine(DoCountdown());
     }
 
@@ -238,6 +248,8 @@ public class BattleSceneManager : MonoBehaviour
                 playerStartingHealth[0] = startingHealth;
             }
 
+            p1SelectedWeaponText.text = "Selected: " + _data.name;
+
             playerStartingHealth[0] -= _data.healthCost;
         }
         else if (currPlayerSelecting == 1)
@@ -250,6 +262,8 @@ public class BattleSceneManager : MonoBehaviour
             }
 
             playerStartingHealth[1] -= _data.healthCost;
+
+            p2SelectedWeaponText.text = "Selected: " + _data.name;
         }
     }
 }
