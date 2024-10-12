@@ -24,6 +24,8 @@ public class WeaponController : MonoBehaviour
     bool isReloading = false;
     bool canFire = true;
 
+    [SerializeField] LayerMask damageableLayers;
+
     private void Start()
     {
         gunObj = Instantiate(data.gunObj, gunPos);
@@ -53,9 +55,16 @@ public class WeaponController : MonoBehaviour
         canFire = false;
         currAmmo--;
 
+        yield return new WaitForSeconds(data.chargeUpTime);
+
         if (data.isHitscan)
         {
             //Do Hitscan Shot
+            for (int i = 0; i < data.burstCount; i++)
+            {
+                HitscanShot();
+                yield return new WaitForSeconds(data.timeBetweenShots);
+            }
         }
         else
         {
@@ -68,6 +77,67 @@ public class WeaponController : MonoBehaviour
         }
         yield return new WaitForSeconds(data.fireSpeed);
         canFire = true;
+    }
+
+    private void HitscanShot()
+    {
+        for (int i = 0; i < data.bulletCount; i++)
+        {
+            RaycastHit hit;
+
+            if (data.hitscanSize > 0)
+            {
+                if (Physics.SphereCast(firePoint.position, data.hitscanSize, transform.forward, out hit, damageableLayers))
+                {
+                    PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponent<PlayerHealthManager>();
+
+                    if (enemyHealthManager != null)
+                    {
+                        if (data.hasDamageFallOff)
+                        {
+                            float dmgFallOff;
+                            float distanceFromPlayer = (hit.collider.gameObject.transform.position - transform.position).normalized.magnitude;
+                            dmgFallOff = data.damageFalloffMultiplier / distanceFromPlayer;
+
+                            if (dmgFallOff > 1) dmgFallOff = 1;
+
+                            enemyHealthManager.TakeDamage(data.damage * dmgFallOff);
+                        }
+                        else
+                        {
+                            enemyHealthManager.TakeDamage(data.damage);
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                if (Physics.Raycast(firePoint.position, transform.forward, out hit, damageableLayers))
+                {
+                    PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponent<PlayerHealthManager>();
+
+                    if (enemyHealthManager != null)
+                    {
+                        if (data.hasDamageFallOff)
+                        {
+                            float dmgFallOff;
+                            float distanceFromPlayer = (hit.collider.gameObject.transform.position - transform.position).normalized.magnitude;
+                            dmgFallOff = data.damageFalloffMultiplier / distanceFromPlayer;
+
+                            if (dmgFallOff > 1) dmgFallOff = 1;
+
+                            enemyHealthManager.TakeDamage(data.damage * dmgFallOff);
+                        }
+                        else
+                        {
+                            enemyHealthManager.TakeDamage(data.damage);
+                        }
+
+                    }
+                }
+            }
+        }
     }
 
     private void ProjectileShot()
@@ -86,7 +156,7 @@ public class WeaponController : MonoBehaviour
             //Initialize the bullet (the hard way)
             bulletProjectile.rb.AddForce(new Vector2(transform.localScale.x, 0) * data.bulletMoveSpeed,
                 ForceMode2D.Impulse);
-            
+
             bulletProjectile.owner = this.gameObject;
 
             bulletProjectile.bulletDamage = data.damage;
