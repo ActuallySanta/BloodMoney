@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class O : MonoBehaviour
+public class QuitGame : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -12,10 +12,12 @@ public class O : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        doExitGame();
-        Debug.Log("Game is exiting");
+    {   
     }
 
-    void doExitGame() { Application.Quit(); }
+    public void doExitGame() { 
+        Debug.Log("losies this quit");
+        Application.Quit();
+
+    }
 }
