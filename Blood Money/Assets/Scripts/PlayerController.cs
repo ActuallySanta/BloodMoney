@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundSpeed = 5f;
     [SerializeField] float jumpSpeed = 10f;
     [SerializeField] float inAirSpeed = 3.5f;
+    [SerializeField] float downForce = 5f;
 
     //Reference to Input Manager (Can't name it that)
     [SerializeField] PlayerInputController playerInput;
@@ -106,11 +107,24 @@ public class PlayerController : MonoBehaviour
 
             case PlayerState.inAir:
 
+
+                rb.AddForce(-transform.up * downForce, ForceMode2D.Force);
+
                 //Let the player jump
                 MovePlayer(inputVector, inAirSpeed);
 
                 //Return to idle state if the player touches the ground
                 if (isGrounded) ChangeState(PlayerState.idle);
+
+                break;
+
+            case PlayerState.dying:
+
+                break;
+
+            case PlayerState.dead:
+
+                Destroy(gameObject);
 
                 break;
         }
