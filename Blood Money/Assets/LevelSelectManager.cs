@@ -41,4 +41,10 @@ public class LevelSelectManager : MonoBehaviour
 
         Destroy(this.gameObject);
     }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Destroy(this.gameObject);
+    }
 }

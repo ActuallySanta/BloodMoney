@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -291,5 +292,11 @@ public class BattleSceneManager : MonoBehaviour
             p2SelectedWeaponText.text = "Selected: " + _data.name;
             p2CurrentHealthText.text = "Current Health: " + playerStartingHealth[1];
         }
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Destroy(this.gameObject);
     }
 }

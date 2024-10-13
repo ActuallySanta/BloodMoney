@@ -132,6 +132,11 @@ public class CharacterSelectMenuManager : MonoBehaviour
         }
     }
 
+    public void GoBack()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Destroy(this.gameObject);
+    }
 
     private void SelectGameMode(gameMode _selectedGameMode)
     {
