@@ -59,7 +59,7 @@ public class CharacterSelectMenuManager : MonoBehaviour
     private void Update()
     {
         //If we have gotten past the all the menu scenes, its time to start the game
-        if (SceneManager.GetActiveScene().buildIndex > 3)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             battleManager = Instantiate(battleManager, Vector2.zero, Quaternion.identity);
 
