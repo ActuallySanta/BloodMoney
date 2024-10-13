@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 7431154702507195357}
   - component: {fileID: 3958544535580713259}
   - component: {fileID: 916246850591663322}
+  - component: {fileID: 1058402763205265150}
   m_Layer: 8
   m_Name: Player Prefab
   m_TagString: Untagged
@@ -249,6 +250,7 @@ MonoBehaviour:
   groundSpeed: 5
   jumpSpeed: 7.5
   inAirSpeed: 3.5
+  downForce: 5
   playerInput: {fileID: 7431154702507195356}
   playerSprite: {fileID: 7431154701043876966}
   anim: {fileID: 0}
@@ -334,3 +336,24 @@ MonoBehaviour:
   maxHealth: 0
   invicibilityTimer: 1.5
   canBeHit: 1
+--- !u!95 &1058402763205265150
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431154702507194914}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b576639dcf3f9e4aa36fc2b6880663f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
