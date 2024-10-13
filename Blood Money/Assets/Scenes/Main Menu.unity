@@ -999,6 +999,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1546769324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546769326}
+  - component: {fileID: 1546769325}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1546769325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546769324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b31ceb65cc4f9045a2a611f3f12201c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 727ff59d13902414ea9bcb9045c6a14e, type: 3}
+    source: {fileID: 0}
+    doesLoop: 1
+    volume: 0.305
+    pitch: 1
+  - name: PlayerDeath
+    clip: {fileID: 0}
+    source: {fileID: 0}
+    doesLoop: 0
+    volume: 0
+    pitch: 0
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: c04925dadd52a894bb8deb48b4f90658, type: 3}
+    source: {fileID: 0}
+    doesLoop: 0
+    volume: 0.5
+    pitch: 1
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: dd55731e9179148419012dd0a9ee39ec, type: 3}
+    source: {fileID: 0}
+    doesLoop: 0
+    volume: 0.5
+    pitch: 1
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 405e10e5ddec417419b7af0532c162c8, type: 3}
+    source: {fileID: 0}
+    doesLoop: 0
+    volume: 0.5
+    pitch: 1
+  - name: Select
+    clip: {fileID: 8300000, guid: 2a585e37a94934c4ca615d9b4a9de6f0, type: 3}
+    source: {fileID: 0}
+    doesLoop: 0
+    volume: 0.5
+    pitch: 1
+--- !u!4 &1546769326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546769324}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1892150300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,15 +1552,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3483519626019167168, guid: ff67aba53a1188344866f6dc2365b501, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.84914243
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3483519626019167168, guid: ff67aba53a1188344866f6dc2365b501, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13571848
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3483519626019167168, guid: ff67aba53a1188344866f6dc2365b501, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.03986098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3483519626019167168, guid: ff67aba53a1188344866f6dc2365b501, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1513,6 +1594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundTitleMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 8851910828573998004, guid: ff67aba53a1188344866f6dc2365b501, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1526,3 +1611,4 @@ SceneRoots:
   - {fileID: 1510626671}
   - {fileID: 1996649882}
   - {fileID: 5599858812422315499}
+  - {fileID: 1546769326}
