@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
             case PlayerState.hurt:
 
-                
+                FindFirstObjectByType<AudioManager>().Play("PlayerHurt");
                 break;
 
             case PlayerState.dead:
