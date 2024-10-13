@@ -33,7 +33,6 @@ public class AudioManager : MonoBehaviour
 
             if (s.doesPitchChangeRandom)
             {
-                System.Random oid = new System.Random();
                 s.source.pitch = UnityEngine.Random.Range(s.minRandPitch, s.maxRandPitch);
             }
             else

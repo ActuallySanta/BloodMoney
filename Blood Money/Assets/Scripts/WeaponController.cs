@@ -59,9 +59,10 @@ public class WeaponController : MonoBehaviour
         yield return new WaitForSeconds(data.chargeUpTime);
 
         Instantiate(muzzleFlashPrefab, firePoint.position, Quaternion.identity);
+        
         AudioManager manager = FindFirstObjectByType<AudioManager>();
-
         manager.Play(data.sfxName);
+
         if (data.isHitscan)
         {
             //Do Hitscan Shot
