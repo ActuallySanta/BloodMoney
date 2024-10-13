@@ -7,20 +7,19 @@ using static CharacterSelectMenuManager;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public enum GetButtonDown
-    {
-        play,
-        settings,
-    };
+    public GameObject MainCan;
+    public GameObject HowToCan;
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void ChangeToNextScene()
@@ -30,8 +29,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void ChangeToSettings()
     {
-        Debug.Log("this is the transfer to settings page");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        //Debug.Log("this is the transfer to settings page");
+        MainCan.SetActive(false);
+        HowToCan.SetActive(true);
     }
 }
 
