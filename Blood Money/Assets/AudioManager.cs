@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
-
+using Unity.Mathematics;
 public class AudioManager : MonoBehaviour
 {
 
@@ -29,8 +29,16 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
             s.source.loop = s.doesLoop;
+
+            if (s.doesPitchChangeRandom)
+            {
+                s.source.pitch = UnityEngine.Random.Range(s.minRandPitch, s.maxRandPitch);
+            }
+            else
+            {
+                s.source.pitch = s.pitch;
+            }
         }
     }
 
