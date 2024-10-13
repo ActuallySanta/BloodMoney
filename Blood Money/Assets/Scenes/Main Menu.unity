@@ -350,6 +350,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1546769325}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtonClick
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &234613153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +712,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1546769325}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtonClick
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1996649883}
         m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
         m_MethodName: doExitGame
@@ -1074,7 +1098,7 @@ MonoBehaviour:
     pitch: 1
     minRandPitch: 1
     maxRandPitch: 1
-  - name: Select
+  - name: ButtonClick
     clip: {fileID: 8300000, guid: 2a585e37a94934c4ca615d9b4a9de6f0, type: 3}
     source: {fileID: 0}
     doesLoop: 0
@@ -1090,7 +1114,7 @@ MonoBehaviour:
     doesPitchChangeRandom: 1
     volume: 1
     pitch: 1
-    minRandPitch: 0.5
+    minRandPitch: 1
     maxRandPitch: 2
 --- !u!4 &1546769326
 Transform:
@@ -1190,6 +1214,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1546769325}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtonClick
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1996649881}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: ChangeToSettings
