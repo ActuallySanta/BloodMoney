@@ -24,6 +24,10 @@ public class RocketProjectile : Projectile
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Instantiate(explosionParticlePrefab, transform.position, Quaternion.identity);
+        
+        AudioManager manager = FindFirstObjectByType<AudioManager>();
+
+        manager.Play("Explosion");
 
         Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayers);
 

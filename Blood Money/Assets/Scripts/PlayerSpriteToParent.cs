@@ -17,4 +17,11 @@ public class PlayerSpriteToParent : MonoBehaviour
 
         playerController.ChangeState(PlayerController.PlayerState.dead);
     }
+
+    public void PlaySoundEffect(string _sfxName)
+    {
+        AudioManager manager = FindFirstObjectByType<AudioManager>();
+
+        manager.Play(_sfxName);
+    }
 }

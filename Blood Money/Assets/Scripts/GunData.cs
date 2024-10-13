@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunData : ScriptableObject
 {
     public string gunName = "Gun";
+    public string sfxName = "";
 
     [Header("Firing Data")]
     public float ammo = 30f;
