@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
         //Get Input
         inputVector = playerInput.GetDirInput();
 
+        if (BattleSceneManager.instance.isStarting) return;
+
         //Make the sprite face the direction the character is moving
         if (inputVector.x != 0) facingDir = inputVector.x;
 

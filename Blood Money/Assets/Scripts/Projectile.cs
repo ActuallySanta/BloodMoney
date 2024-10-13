@@ -25,8 +25,6 @@ public class Projectile : MonoBehaviour
 
         if (collision.gameObject != owner)
         {
-            Debug.Log(collision.gameObject.name);
-
             if (enemyHealthManager != null)
             {
                 enemyHealthManager.TakeDamage(bulletDamage);

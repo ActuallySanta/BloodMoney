@@ -10,4 +10,11 @@ public class PlayerSpriteToParent : MonoBehaviour
 
         playerController.ChangeState(PlayerController.PlayerState.idle);
     }
+
+    public void DyingStateToDead()
+    {
+        PlayerController playerController = GetComponentInParent<PlayerController>();
+
+        playerController.ChangeState(PlayerController.PlayerState.dead);
+    }
 }

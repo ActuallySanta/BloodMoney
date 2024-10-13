@@ -46,7 +46,7 @@ public class BattleSceneManager : MonoBehaviour
     [HideInInspector] public GameObject levelObjects;
 
     bool isPlaying = false;
-    bool isStarting = false;
+    public bool isStarting = false;
     int roundCount = 0;
 
     public static BattleSceneManager instance { get; private set; }
