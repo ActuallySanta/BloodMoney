@@ -3,6 +3,13 @@ using UnityEngine;
 public class BackgroundMusicController : MonoBehaviour
 {
     private AudioSource audioSource;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -11,17 +18,12 @@ public class BackgroundMusicController : MonoBehaviour
 
     public void PlayMusic()
     {
-        if (!audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
+        if (audioSource.isPlaying) return;
+        audioSource.Play();
     }
 
     public void StopMusic()
     {
-        if (audioSource.isPlaying)
-        {
-            audioSource.Stop();
-        }
+        audioSource.Stop();
     }
 }
