@@ -122,6 +122,11 @@ public class PlayerController : MonoBehaviour
                 //TODO ADD TRANSITION FROM DYING TO DEAD
                 break;
 
+            case PlayerState.hurt:
+
+                
+                break;
+
             case PlayerState.dead:
 
                 Destroy(gameObject);
@@ -136,7 +141,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Jump()
     {
         //Remove any velocity it had beforehand (standardizes it)
-        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
 
         //Actually add the force
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
@@ -156,9 +161,9 @@ public class PlayerController : MonoBehaviour
     /// <param name="_inputVector">The input vector from the keyboard</param>
     private void MovePlayer(Vector2 _inputVector, float _moveSpeed)
     {
-        Vector2 _vel = new Vector2(_inputVector.x * _moveSpeed, rb.velocity.y);
+        Vector2 _vel = new Vector2(_inputVector.x * _moveSpeed, rb.linearVelocity.y);
 
-        rb.velocity = _vel;
+        rb.linearVelocity = _vel;
     }
 
     /// <summary>
@@ -192,4 +197,11 @@ public class PlayerController : MonoBehaviour
 
         currState = _endingState;
     }
+
+    public PlayerState GetCurrState()
+    {
+        return currState;
+    }
+
+    
 }

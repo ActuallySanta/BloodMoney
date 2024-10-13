@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Gun
   ammo: 12
-  reloadTime: 0.25
-  fireSpeed: 0.1
+  reloadTime: 1.5
+  fireSpeed: 0.35
   damage: 10
   bulletMoveSpeed: 20
   bulletCount: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
   hitscanSize: 0
   damageFalloffMultiplier: 1
   healthCost: 0
-  gunObj: {fileID: 0}
+  gunObj: {fileID: 7618623973251663856, guid: cb857cc1b78879b45bc263dfd18ae605, type: 3}
   projectileObj: {fileID: 4909437568491694924, guid: c52d23ceb8ef18e4fa03d7786c8ffd03, type: 3}
   isHitscan: 0
   hasDamageFallOff: 0

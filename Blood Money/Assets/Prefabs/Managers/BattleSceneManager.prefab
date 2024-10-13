@@ -2388,6 +2388,7 @@ MonoBehaviour:
   - {fileID: 348393330}
   - {fileID: 1335389326}
   itemShopParent: {fileID: 747051427}
+  defaultGunData: {fileID: 0}
   timeBetweenCountdowns: 1
   winScreenDisplayTime: 3
   startingHealth: 0

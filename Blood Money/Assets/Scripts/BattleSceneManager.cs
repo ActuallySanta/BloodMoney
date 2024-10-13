@@ -31,6 +31,7 @@ public class BattleSceneManager : MonoBehaviour
     [Header("Player Shop Objects")]
     [SerializeField] private GameObject[] itemSelectMenuParents;
     [SerializeField] private GameObject itemShopParent;
+    [SerializeField] private GunData defaultGunData;
 
     [Header("Display Timers")]
     [SerializeField] private float timeBetweenCountdowns = 5f;
@@ -77,6 +78,12 @@ public class BattleSceneManager : MonoBehaviour
 
         p1CharacterName.gameObject.SetActive(false);
         p2CharacterName.gameObject.SetActive(false);
+
+        p1CurrentHealthText.text = "Current Health: " + playerStartingHealth[0];
+        p2CurrentHealthText.text = "Current Health: " + playerStartingHealth[1];
+
+        p1SelectedWeaponText.text = "Selected: " + playerGunData[0].name;
+        p2SelectedWeaponText.text = "Selected: " + playerGunData[1].name;
 
         ShowMenu();
     }
