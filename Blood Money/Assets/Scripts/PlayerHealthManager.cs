@@ -31,8 +31,8 @@ public class PlayerHealthManager : MonoBehaviour
 
     private void PlayerDie()
     {
-        BattleSceneManager.instance.RemovePlayerFromActiveList(this.gameObject);
         pController.ChangeState(PlayerController.PlayerState.dying);
+        BattleSceneManager.instance.RemovePlayerFromActiveList(this.gameObject);
 
     }
 
