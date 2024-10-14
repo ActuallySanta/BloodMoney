@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a9ada6869f111f64ba11ce1e7aad3c92
+guid: c158449900a5deb4eac0a2f89ad175e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2433350091732545936
-    second: Rifle_Muzzle_Flash_0
+      213: -6186496052242473049
+    second: Muzzle_Flash_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rifle_Muzzle_Flash_0
+      name: Muzzle_Flash_0
       rect:
         serializedVersion: 2
         x: 12
-        y: 0
-        width: 25
-        height: 20
+        y: 4
+        width: 10
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 091f1e7140ff4c120800000000000000
-      internalID: 2433350091732545936
+      spriteID: 7af1bb13e96252aa0800000000000000
+      internalID: -6186496052242473049
       vertices: []
       indices: 
       edges: []
