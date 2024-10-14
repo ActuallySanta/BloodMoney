@@ -40,6 +40,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (BattleSceneManager.instance.isStarting) return;
 
         //If the weapon can be fired and the firing input is being pressed
         if (Input.GetKey(playerInput.fireKey) && canFire && currAmmo >= 1)
@@ -66,6 +67,7 @@ public class WeaponController : MonoBehaviour
             RaycastHit2D raycastHit = Physics2D.Raycast(firePoint.position, transform.right, Mathf.Infinity, 1 << 9);
             if (raycastHit)
             {
+                Debug.Log("hit");
                 line.SetPosition(1, raycastHit.point);
             }
 
