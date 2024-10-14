@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 111468237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1366863444}
+        m_TargetAssemblyTypeName: LevelSelectManager, Assembly-CSharp
+        m_MethodName: ChooseLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5425290360232956328, guid: f68e9638b706992439f67d9a9592ac67, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &111468237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +975,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.1
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -988,7 +1000,7 @@ Transform:
   m_GameObject: {fileID: 754796193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1096,6 +1108,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &909147932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7431154701043876960, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c485b9e87ad905344b2e1759b9b87fa9, type: 2}
+    - target: {fileID: 7431154702507194914, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_Name
+      value: Player Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431154702507195358, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c4aea2962fbfb1d43a3a5ac191212770, type: 3}
 --- !u!1 &962301542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,7 +2357,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 3
+  m_text: 'Level 3 - The Pit
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
   m_sharedMaterial: {fileID: 952876029514853387, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
@@ -2544,3 +2619,4 @@ SceneRoots:
   - {fileID: 2099165781}
   - {fileID: 900512602}
   - {fileID: 1366863445}
+  - {fileID: 909147932}
