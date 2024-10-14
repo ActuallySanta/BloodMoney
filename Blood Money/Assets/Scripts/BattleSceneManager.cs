@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -147,13 +148,29 @@ public class BattleSceneManager : MonoBehaviour
         isPlaying = false;
         isStarting = true;
 
+        int winningPlayer = activePlayers[0].GetComponent<PlayerInputController>().playerInd;
+
         foreach (GameObject player in activePlayers)
         {
             Destroy(player);
         }
 
+        activePlayers.RemoveRange(0, activePlayers.Count);
+
+        string winningText = "";
+
+        if (winningPlayer == 0)
+        {
+            winningText = "PLAYER ONE";
+        }
+
+        if (winningPlayer == 1)
+        {
+            winningText = "PLAYER TWO";
+        }
+
         roundStartText.gameObject.SetActive(true);
-        roundStartText.text = activePlayers[0].GetComponent<PlayerController>().charData.name + " WINS!";
+        roundStartText.text = winningText + " WINS!";
 
         yield return new WaitForSeconds(winScreenDisplayTime);
         isStarting = false;

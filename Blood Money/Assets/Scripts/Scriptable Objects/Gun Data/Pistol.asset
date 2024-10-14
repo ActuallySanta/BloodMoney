@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   gunName: Gun
+  sfxName: RifleShot
   ammo: 12
   reloadTime: 1.5
   fireSpeed: 0.35
@@ -27,5 +28,6 @@ MonoBehaviour:
   healthCost: 0
   gunObj: {fileID: 7618623973251663856, guid: cb857cc1b78879b45bc263dfd18ae605, type: 3}
   projectileObj: {fileID: 4909437568491694924, guid: c52d23ceb8ef18e4fa03d7786c8ffd03, type: 3}
+  muzzleFlash: {fileID: 4382636144936950790, guid: 226d9cee965d8ce498fb4c490de5fc1e, type: 3}
   isHitscan: 0
   hasDamageFallOff: 0

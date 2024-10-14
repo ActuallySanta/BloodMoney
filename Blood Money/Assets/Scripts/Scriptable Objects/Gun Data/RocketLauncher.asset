@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
   gunName: Rocket Launcher
+  sfxName: RifleShot
   ammo: 1
   reloadTime: 2
   fireSpeed: 0.1
@@ -27,5 +28,6 @@ MonoBehaviour:
   healthCost: 60
   gunObj: {fileID: 8958452731613207819, guid: 44c4ff737bb11bd438395872a3c4344f, type: 3}
   projectileObj: {fileID: 4909437568491694924, guid: b27a1ae3c03fe13478fb841fb3460777, type: 3}
+  muzzleFlash: {fileID: 4382636144936950790, guid: 226d9cee965d8ce498fb4c490de5fc1e, type: 3}
   isHitscan: 0
   hasDamageFallOff: 0

@@ -40,7 +40,7 @@ public class WeaponController : MonoBehaviour
     {
 
         //If the weapon can be fired and the firing input is being pressed
-        if (Input.GetKey(playerInput.fireKey) && canFire)
+        if (Input.GetKey(playerInput.fireKey) && canFire && currAmmo >= 1)
         {
             StartCoroutine(FireWeapon());
         }
@@ -59,7 +59,7 @@ public class WeaponController : MonoBehaviour
         yield return new WaitForSeconds(data.chargeUpTime);
 
         Instantiate(muzzleFlashPrefab, firePoint.position, Quaternion.identity);
-        
+
         AudioManager manager = FindFirstObjectByType<AudioManager>();
         manager.Play(data.sfxName);
 
@@ -89,57 +89,65 @@ public class WeaponController : MonoBehaviour
     {
         for (int i = 0; i < data.bulletCount; i++)
         {
-            RaycastHit hit;
 
             if (data.hitscanSize > 0)
             {
-                if (Physics.SphereCast(firePoint.position, data.hitscanSize, transform.forward, out hit, damageableLayers))
+                RaycastHit2D[] hitObj = Physics2D.CircleCastAll(firePoint.position, data.hitscanSize, transform.forward, Mathf.Infinity);
+                if (hitObj.Length > 0)
                 {
-                    PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponent<PlayerHealthManager>();
-
-                    if (enemyHealthManager != null)
+                    foreach (RaycastHit2D hit in hitObj)
                     {
-                        if (data.hasDamageFallOff)
+
+                        PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponentInParent<PlayerHealthManager>();
+
+                        if (enemyHealthManager != null && enemyHealthManager.gameObject != gameObject)
                         {
-                            float dmgFallOff;
-                            float distanceFromPlayer = (hit.collider.gameObject.transform.position - transform.position).normalized.magnitude;
-                            dmgFallOff = data.damageFalloffMultiplier / distanceFromPlayer;
+                            if (data.hasDamageFallOff)
+                            {
+                                float dmgFallOff;
+                                float distanceFromPlayer = (hit.collider.gameObject.transform.position - transform.position).normalized.magnitude;
+                                dmgFallOff = data.damageFalloffMultiplier / distanceFromPlayer;
 
-                            if (dmgFallOff > 1) dmgFallOff = 1;
+                                if (dmgFallOff > 1) dmgFallOff = 1;
 
-                            enemyHealthManager.TakeDamage(data.damage * dmgFallOff);
+                                enemyHealthManager.TakeDamage(data.damage * dmgFallOff);
+                            }
+                            else
+                            {
+                                enemyHealthManager.TakeDamage(data.damage);
+                            }
+
                         }
-                        else
-                        {
-                            enemyHealthManager.TakeDamage(data.damage);
-                        }
-
                     }
                 }
             }
             else
             {
-                if (Physics.Raycast(firePoint.position, transform.forward, out hit, damageableLayers))
+                RaycastHit2D[] hitObj = Physics2D.RaycastAll(firePoint.position, transform.right, Mathf.Infinity);
+                if (hitObj.Length > 0)
                 {
-                    PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponent<PlayerHealthManager>();
-
-                    if (enemyHealthManager != null)
+                    foreach (RaycastHit2D hit in hitObj)
                     {
-                        if (data.hasDamageFallOff)
+                        PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponentInParent<PlayerHealthManager>();
+
+                        if (enemyHealthManager != null && enemyHealthManager.gameObject != gameObject)
                         {
-                            float dmgFallOff;
-                            float distanceFromPlayer = (hit.collider.gameObject.transform.position - transform.position).normalized.magnitude;
-                            dmgFallOff = data.damageFalloffMultiplier / distanceFromPlayer;
+                            if (data.hasDamageFallOff)
+                            {
+                                float dmgFallOff;
+                                float distanceFromPlayer = (hit.collider.gameObject.transform.position - transform.position).normalized.magnitude;
+                                dmgFallOff = data.damageFalloffMultiplier / distanceFromPlayer;
 
-                            if (dmgFallOff > 1) dmgFallOff = 1;
+                                if (dmgFallOff > 1) dmgFallOff = 1;
 
-                            enemyHealthManager.TakeDamage(data.damage * dmgFallOff);
+                                enemyHealthManager.TakeDamage(data.damage * dmgFallOff);
+                            }
+                            else
+                            {
+                                enemyHealthManager.TakeDamage(data.damage);
+                            }
+
                         }
-                        else
-                        {
-                            enemyHealthManager.TakeDamage(data.damage);
-                        }
-
                     }
                 }
             }
@@ -199,6 +207,7 @@ public class WeaponController : MonoBehaviour
 
         currAmmo = data.ammo;
         isReloading = false;
+        canFire = true;
     }
 
 }

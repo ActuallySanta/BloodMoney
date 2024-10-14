@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   gunName: Laser Gun
+  sfxName: RifleShot
   ammo: 1
   reloadTime: 0.75
   fireSpeed: 0.1
   damage: 100
   bulletMoveSpeed: 20
-  bulletLifetime: 2
   bulletCount: 1
   timeBetweenShots: 0
   burstCount: 1
@@ -28,5 +28,6 @@ MonoBehaviour:
   healthCost: 80
   gunObj: {fileID: 1679373761293468436, guid: ac94f7495655b184c948f32b774f46cc, type: 3}
   projectileObj: {fileID: 0}
+  muzzleFlash: {fileID: 4382636144936950790, guid: 226d9cee965d8ce498fb4c490de5fc1e, type: 3}
   isHitscan: 1
   hasDamageFallOff: 0

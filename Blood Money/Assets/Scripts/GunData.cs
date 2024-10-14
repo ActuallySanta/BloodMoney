@@ -27,6 +27,7 @@ public class GunData : ScriptableObject
     [Header("Object References")]
     public GameObject gunObj;
     public GameObject projectileObj;
+    public GameObject muzzleFlash;
 
     [Header("Bullet Checks")]
     public bool isHitscan = false;

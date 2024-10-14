@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   gunName: Revolver
+  sfxName: RifleShot
   ammo: 4
   reloadTime: 0.25
   fireSpeed: 0.5
@@ -27,5 +28,6 @@ MonoBehaviour:
   healthCost: 0
   gunObj: {fileID: 3744710794091233829, guid: 985de197ac2cb414584c5f751168383f, type: 3}
   projectileObj: {fileID: 4909437568491694924, guid: c52d23ceb8ef18e4fa03d7786c8ffd03, type: 3}
+  muzzleFlash: {fileID: 4382636144936950790, guid: 226d9cee965d8ce498fb4c490de5fc1e, type: 3}
   isHitscan: 0
   hasDamageFallOff: 0
