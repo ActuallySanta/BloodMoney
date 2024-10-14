@@ -138,6 +138,12 @@ public class CharacterSelectMenuManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void PlayClickSFX()
+    {
+        AudioManager manager = FindFirstObjectByType<AudioManager>();
+        manager.Play("ButtonClick");
+    }
+
     private void SelectGameMode(gameMode _selectedGameMode)
     {
         selectedGameMode = _selectedGameMode;

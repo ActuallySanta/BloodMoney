@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5425290360232956329}
   m_Layer: 0
-  m_Name: Level 3 - Emma
+  m_Name: Level 3 - The Pit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,7 +1180,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4027,8 +4027,8 @@ Tilemap:
     m_Data: {fileID: -521816610, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1197466027, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -2031760539, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 2
@@ -4045,8 +4045,8 @@ Tilemap:
     m_Data: {fileID: -390552634, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
   - m_RefCount: 21
     m_Data: {fileID: 315823199, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -2031760539, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -620487531, guid: 028ee74accc656f4db067d0b72e67f10, type: 3}
   - m_RefCount: 7
