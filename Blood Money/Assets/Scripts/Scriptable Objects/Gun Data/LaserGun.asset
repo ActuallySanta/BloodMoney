@@ -22,7 +22,7 @@ MonoBehaviour:
   bulletCount: 1
   timeBetweenShots: 0
   burstCount: 1
-  chargeUpTime: 0.25
+  chargeUpTime: 0.75
   hitscanSize: 0
   damageFalloffMultiplier: 1
   healthCost: 80
