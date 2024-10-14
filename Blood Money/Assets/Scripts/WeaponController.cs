@@ -40,6 +40,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (BattleSceneManager.instance.isStarting) return;
 
         //If the weapon can be fired and the firing input is being pressed
         if (Input.GetKey(playerInput.fireKey) && canFire && currAmmo >= 1)

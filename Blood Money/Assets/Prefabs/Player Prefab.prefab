@@ -360,7 +360,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 9f07ac5c65e8c8d40a9e389008e5d604, type: 2}
   firePoint: {fileID: 0}
   gunPos: {fileID: 7431154700632942721}
-  line: {fileID: 0}
+  line: {fileID: 4509613676508665602}
   damageableLayers:
     serializedVersion: 2
     m_Bits: 256
