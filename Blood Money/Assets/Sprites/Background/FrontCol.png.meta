@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: c158449900a5deb4eac0a2f89ad175e7
+guid: 4f67cb82d399548419ba068fbd88563b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6186496052242473049
-    second: Muzzle_Flash_0
+      213: -151462727932328944
+    second: FrontCol_0
+  - first:
+      213: 6706602193819506706
+    second: FrontCol_1
+  - first:
+      213: 8438183418061467766
+    second: FrontCol_2
+  - first:
+      213: -1822299752704608567
+    second: FrontCol_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,13 +148,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Muzzle_Flash_0
+      name: FrontCol_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 4
-        width: 10
-        height: 9
+        x: 0
+        y: 0
+        width: 13
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +163,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7af1bb13e96252aa0800000000000000
-      internalID: -6186496052242473049
+      spriteID: 014c1e09375e5edf0800000000000000
+      internalID: -151462727932328944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontCol_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21897748923a21d50800000000000000
+      internalID: 6706602193819506706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontCol_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 670352f7c137a1570800000000000000
+      internalID: 8438183418061467766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontCol_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c672c5a704e5b6e0800000000000000
+      internalID: -1822299752704608567
       vertices: []
       indices: 
       edges: []
@@ -173,8 +248,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Muzzle_Flash_0: -6186496052242473049
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
