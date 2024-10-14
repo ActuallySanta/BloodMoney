@@ -16,7 +16,9 @@ public class WeaponController : MonoBehaviour
 
     //The point where the gun sprite will be instantiated
     [SerializeField] Transform gunPos;
-    [SerializeField] GameObject muzzleFlashPrefab;
+
+
+    [SerializeField] LineRenderer line;
 
     float currAmmo;
 
@@ -56,9 +58,28 @@ public class WeaponController : MonoBehaviour
         canFire = false;
         currAmmo--;
 
+        if (data.name == "Laser Gun")
+        {
+            line.enabled = true;
+            line.SetPosition(0, transform.position);
+
+            RaycastHit2D raycastHit = Physics2D.Raycast(firePoint.position, transform.right, Mathf.Infinity, 1 << 9);
+            if (raycastHit)
+            {
+                line.SetPosition(1, raycastHit.point);
+            }
+
+            else
+            {
+                line.SetPosition(1, transform.position);
+            }
+        }
+
         yield return new WaitForSeconds(data.chargeUpTime);
 
-        Instantiate(muzzleFlashPrefab, firePoint.position, Quaternion.identity);
+        Instantiate(data.muzzleFlash, firePoint);
+
+        line.enabled = false;
 
         AudioManager manager = FindFirstObjectByType<AudioManager>();
         manager.Play(data.sfxName);
@@ -102,6 +123,8 @@ public class WeaponController : MonoBehaviour
 
                         if (enemyHealthManager != null && enemyHealthManager.gameObject != gameObject)
                         {
+                            Debug.Log("did damage");
+
                             if (data.hasDamageFallOff)
                             {
                                 float dmgFallOff;
@@ -117,15 +140,19 @@ public class WeaponController : MonoBehaviour
                                 enemyHealthManager.TakeDamage(data.damage);
                             }
 
+
                         }
                     }
                 }
             }
             else
             {
+                Debug.Log(data.name);
                 RaycastHit2D[] hitObj = Physics2D.RaycastAll(firePoint.position, transform.right, Mathf.Infinity);
                 if (hitObj.Length > 0)
                 {
+
+
                     foreach (RaycastHit2D hit in hitObj)
                     {
                         PlayerHealthManager enemyHealthManager = hit.collider.gameObject.GetComponentInParent<PlayerHealthManager>();
@@ -210,4 +237,8 @@ public class WeaponController : MonoBehaviour
         canFire = true;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, transform.right);
+    }
 }

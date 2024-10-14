@@ -23,11 +23,11 @@ MonoBehaviour:
   timeBetweenShots: 0
   burstCount: 1
   chargeUpTime: 0
-  hitscanSize: 0.1
+  hitscanSize: 2.5
   damageFalloffMultiplier: 1
   healthCost: 40
   gunObj: {fileID: 7618623973251663856, guid: a7973fe89bad2b542acb91b39eafbbe5, type: 3}
   projectileObj: {fileID: 0}
-  muzzleFlash: {fileID: 4382636144936950790, guid: 226d9cee965d8ce498fb4c490de5fc1e, type: 3}
+  muzzleFlash: {fileID: 1277026481723357090, guid: c04569e4805d559429df92a922c8e884, type: 3}
   isHitscan: 1
   hasDamageFallOff: 1
