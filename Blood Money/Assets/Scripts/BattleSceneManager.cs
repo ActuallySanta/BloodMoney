@@ -122,6 +122,8 @@ public class BattleSceneManager : MonoBehaviour
             //Update Health Value
             for (int i = 0; i < activePlayers.Count; i++)
             {
+                if (activePlayers[i] == null) return;
+
                 PlayerHealthManager hManager = activePlayers[i].GetComponent<PlayerHealthManager>();
                 playerHealthSliders[i].value = hManager.currHealth;
             }

@@ -7,19 +7,22 @@ using static CharacterSelectMenuManager;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject MainCan;
-    public GameObject HowToCan;
+    [SerializeField] private GameObject mainCanvas;
+    [SerializeField] private GameObject howToCanvas;
+    [SerializeField] private GameObject controlsCanvas;
+
+    [SerializeField] private GameObject[] menus;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ChangeToNextScene()
@@ -27,11 +30,38 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void ChangeToSettings()
+    public void ChangeToHowTo()
     {
         //Debug.Log("this is the transfer to settings page");
-        MainCan.SetActive(false);
-        HowToCan.SetActive(true);
+
+        foreach (GameObject menu in menus)
+        {
+            menu.SetActive(false);
+        }
+
+        howToCanvas.SetActive(true);
+    }
+
+    public void ChangeToControls()
+    {
+
+        foreach (GameObject menu in menus)
+        {
+            menu.SetActive(false);
+        }
+
+        controlsCanvas.SetActive(true);
+    }
+
+    public void BackToMainMenu()
+    {
+
+        foreach (GameObject menu in menus)
+        {
+            menu.SetActive(false);
+        }
+
+        mainCanvas.SetActive(true);
     }
 }
 
