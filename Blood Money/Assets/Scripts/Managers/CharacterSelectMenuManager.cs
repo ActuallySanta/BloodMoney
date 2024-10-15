@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class CharacterSelectMenuManager : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class CharacterSelectMenuManager : MonoBehaviour
         p1SplashImage.gameObject.SetActive(false);
         p2SplashImage.gameObject.SetActive(false);
         SelectGameMode(gameMode.hundredHealth);
+
     }
 
     private void Update()
@@ -90,7 +92,6 @@ public class CharacterSelectMenuManager : MonoBehaviour
             p1SplashImage.sprite = _char.defaultSprite;
 
             p1Data = _char;
-            currPlayer = currPlayerSelecting.playerTwoSelecting;
             return;
         }
 
@@ -102,7 +103,6 @@ public class CharacterSelectMenuManager : MonoBehaviour
             p2SplashImage.sprite = _char.defaultSprite;
 
             p2Data = _char;
-            currPlayer = currPlayerSelecting.bothPlayersSelected;
             return;
         }
     }
@@ -174,6 +174,21 @@ public class CharacterSelectMenuManager : MonoBehaviour
                 modeSelectText.text = "Selected Mode: 1 Health";
                 startHealth = 1;
                 break;
+        }
+    }
+
+    public void NextCharacterSelects()
+    {
+        if (currPlayer == currPlayerSelecting.playerOneSelecting)
+        {
+            currPlayer = currPlayerSelecting.playerTwoSelecting;
+            return;
+        }
+
+        if (currPlayer == currPlayerSelecting.playerTwoSelecting)
+        {
+            currPlayer = currPlayerSelecting.bothPlayersSelected;
+            return;
         }
     }
 }
