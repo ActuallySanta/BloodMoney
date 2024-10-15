@@ -94,6 +94,8 @@ public class BattleSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+
         roundCountText.text = "ROUND: " + roundCount;
 
         if (currPlayerSelecting >= itemSelectMenuParents.Length && !isPlaying && !isStarting)
@@ -101,6 +103,17 @@ public class BattleSceneManager : MonoBehaviour
             Debug.Log("Ended Buy Phase");
             OnRoundStart();
             return;
+        }
+
+        if (isPlaying || isStarting)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         if (!isPlaying && !isStarting)
