@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     //Ground Check stuff
     [SerializeField] LayerMask groundLayers;
     [SerializeField] Transform floorPos;
+    [SerializeField] float coyoteFrames;
+    bool canJump = true;
     bool isGrounded;
 
     public enum PlayerState
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviour
     //The direction the sprite is facing
     float facingDir = 1;
 
+    float jumpTimer;
+
     void Start()
     {
         isGrounded = false;
@@ -64,6 +68,18 @@ public class PlayerController : MonoBehaviour
     {
         //Check if the player is on the ground
         isGrounded = CheckForGround();
+
+        if (!isGrounded)
+        {
+            jumpTimer = Time.time;
+        }
+
+        if (!isGrounded && jumpTimer + coyoteFrames < Time.time)
+        {
+            canJump = false;
+        }
+
+        if (isGrounded) canJump = true;
 
         //Get Input
         inputVector = playerInput.GetDirInput();
@@ -85,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //Let the player jump
-                if (inputVector.y > 0 && isGrounded)
+                if (inputVector.y > 0 && canJump)
                 {
                     StartCoroutine(Jump());
                 }
@@ -100,7 +116,7 @@ public class PlayerController : MonoBehaviour
                 if (inputVector.x == 0 && isGrounded) ChangeState(PlayerState.idle);
 
                 //Let the player jump if they press the up key
-                if (inputVector.y > 0 && isGrounded)
+                if (inputVector.y > 0 && canJump)
                 {
                     StartCoroutine(Jump());
                 }
