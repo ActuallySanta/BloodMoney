@@ -298,6 +298,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   floorPos: {fileID: 7431154700561166119}
+  coyoteFrames: 5
 --- !u!114 &7431154702507195356
 MonoBehaviour:
   m_ObjectHideFlags: 0
