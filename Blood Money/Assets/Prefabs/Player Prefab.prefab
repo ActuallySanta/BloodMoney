@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 3958544535580713259}
   - component: {fileID: 916246850591663322}
   - component: {fileID: 6416941538085737268}
+  - component: {fileID: 5496749094648811926}
   m_Layer: 8
   m_Name: Player Prefab
   m_TagString: Untagged
@@ -318,6 +319,25 @@ MonoBehaviour:
   downKey: 0
   fireKey: 0
   equipmentKey: 0
+  playerMoveInputs:
+    m_Name: Player Move Inputs
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 889f38cc-fe0f-4047-9fff-b5e39ec30339
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playerShootInputs:
+    m_Name: Player Shoot Inputs
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2f1abf97-472d-4e89-9e73-6630c16ea3ed
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  didFire: 0
 --- !u!50 &7431154702507195357
 Rigidbody2D:
   serializedVersion: 5
@@ -478,6 +498,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5496749094648811926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431154702507194914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 55dca95129a3b24408066276185ab3bf, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &7622848023519837536
 GameObject:
   m_ObjectHideFlags: 0

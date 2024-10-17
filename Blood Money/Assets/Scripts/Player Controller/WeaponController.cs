@@ -29,6 +29,11 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField] LayerMask damageableLayers;
 
+    private void OnEnable()
+    {
+        
+    }
+
     private void Start()
     {
         gunObj = Instantiate(data.gunObj, gunPos);
@@ -44,7 +49,7 @@ public class WeaponController : MonoBehaviour
 
 
         //If the weapon can be fired and the firing input is being pressed
-        if (Input.GetKey(playerInput.fireKey) && canFire && currAmmo >= 1)
+        if (playerInput.didFire && canFire && currAmmo >= 1)
         {
             StartCoroutine(FireWeapon());
         }

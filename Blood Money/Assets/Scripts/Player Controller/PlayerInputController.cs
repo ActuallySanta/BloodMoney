@@ -1,51 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
     public int playerInd = 0;
-    [HideInInspector] public KeyCode leftKey, rightKey, upKey, downKey, fireKey, equipmentKey;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private InputAction playerMoveInputs;
+    [SerializeField] private InputAction playerShootInputs;
+
+    [SerializeField] private Player1InputActions playerControls;
+
+    public bool didFire = false;
+
+    private void Awake()
     {
+        playerControls = new Player1InputActions();
+    }
+
+    void OnEnable()
+    {
+        playerMoveInputs = playerControls.Player.Move;
+        playerMoveInputs.Enable();
+
+        playerShootInputs = playerControls.Player.Fire;
+        playerMoveInputs.Enable();
+
+    }
+
+    private void OnDisable()
+    {
+        playerMoveInputs.Disable();
+        playerShootInputs.Disable();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Set which keys are the given to each player based on playerInd
-        switch (playerInd)
-        {
-            case 0:
-                leftKey = KeyCode.A;
-                rightKey = KeyCode.D;
-                upKey = KeyCode.W;
-                downKey = KeyCode.S;
-                fireKey = KeyCode.E;
-                equipmentKey = KeyCode.Q;
-                break;
-
-            case 1:
-                leftKey = KeyCode.LeftArrow;
-                rightKey = KeyCode.RightArrow;
-                upKey = KeyCode.UpArrow;
-                downKey = KeyCode.DownArrow;
-                fireKey = KeyCode.RightShift;
-                equipmentKey = KeyCode.Slash;
-                break;
-
-            case 2:
-                leftKey = KeyCode.J;
-                rightKey = KeyCode.L;
-                upKey = KeyCode.I;
-                downKey = KeyCode.K;
-                fireKey = KeyCode.Semicolon;
-                equipmentKey = KeyCode.Quote;
-                break;
-        }
+        didFire = playerShootInputs.IsPressed();
     }
 
     /// <summary>
@@ -54,18 +48,10 @@ public class PlayerInputController : MonoBehaviour
     /// <returns>A vector2 with the inputs of the player as the x and y values</returns>
     public Vector2 GetDirInput()
     {
-        //Define temp variables
-        float _xInput = 0;
-        float _yInput = 0;
+        Vector2 moveDir;
 
-        //If the left or right key are pressed, affect the float 
-        if (Input.GetKey(leftKey)) _xInput--;
-        if (Input.GetKey(rightKey)) _xInput++;
+        moveDir = playerMoveInputs.ReadValue<Vector2>();
 
-        //If the left or right key are pressed, affect the float 
-        if (Input.GetKey(downKey)) _yInput--;
-        if (Input.GetKey(upKey)) _yInput++;
-
-        return new Vector2(_xInput, _yInput);
+        return moveDir;
     }
 }
