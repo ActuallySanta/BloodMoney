@@ -29,10 +29,6 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField] LayerMask damageableLayers;
 
-    private void OnEnable()
-    {
-        
-    }
 
     private void Start()
     {
