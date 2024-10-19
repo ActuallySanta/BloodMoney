@@ -13,6 +13,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private Player1InputActions playerControls;
 
     public bool didFire = false;
+    public InputDevice playerInputDevice;
 
     private void Awake()
     {
@@ -50,8 +51,15 @@ public class PlayerInputController : MonoBehaviour
     {
         Vector2 moveDir;
 
-        moveDir = playerMoveInputs.ReadValue<Vector2>();
 
+        if (playerMoveInputs.ReadValue<Vector2>().x != 0)
+        {
+            moveDir = playerMoveInputs.ReadValue<Vector2>();
+        }
+        else
+        {
+            moveDir = new Vector2(0, playerMoveInputs.ReadValue<Vector2>().y);
+        }
         return moveDir;
     }
 }

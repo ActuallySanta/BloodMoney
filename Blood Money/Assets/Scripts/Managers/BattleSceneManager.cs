@@ -5,7 +5,8 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class BattleSceneManager : MonoBehaviour
     [Header("Player Spawning")]
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private List<Transform> playerSpawnpoints = new List<Transform>();
+    [SerializeField] private PlayerInputManager inputManager;
 
     [Header("UI Stuff")]
     [SerializeField] private TMP_Text roundStartText;
@@ -210,11 +212,10 @@ public class BattleSceneManager : MonoBehaviour
         for (int i = 0; i < playerCharData.Count; i++)
         {
             Debug.Log("Made it to the round start");
-
             //Instantiate each player
-            GameObject player = Instantiate(playerPrefab, playerSpawnpoints[i].position,
+            GameObject player = Instantiate(playerPrefab,playerSpawnpoints[i].position,
                 Quaternion.identity, this.gameObject.transform);
-
+            
             //Get references to the player controller,player input manager, and the health manager
             PlayerController pController = player.GetComponent<PlayerController>();
             PlayerHealthManager pHManager = player.GetComponent<PlayerHealthManager>();
@@ -225,7 +226,7 @@ public class BattleSceneManager : MonoBehaviour
             pHManager.maxHealth = playerStartingHealth[i];
             pWeapon.data = playerGunData[i];
             pController.charData = playerCharData[i];
-            pInputController.playerInd = i;
+            pInputController.playerInputDevice = InputSystem.GetDeviceById(i);
 
             //Add each player to a list containing all active players
             activePlayers.Add(player);
@@ -301,8 +302,6 @@ public class BattleSceneManager : MonoBehaviour
     /// <param name="_data">The gun the player is selecting</param>
     public void PlayerBuyGun(GunData _data)
     {
-        
-
         if (currPlayerSelecting == 0)
         {
             playerGunData.Insert(0, _data);
