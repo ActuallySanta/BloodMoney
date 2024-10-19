@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isGrounded = false;
-        
+
         anim = playerSprite.GetComponent<Animator>();
         anim.runtimeAnimatorController = charData.charAnim;
         ChangeState(PlayerState.idle);
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //Let the player jump
-                if (inputVector.y > 0 && canJump)
+                if ((inputVector.y > 0 || playerInput.jumpInput) && canJump)
                 {
                     StartCoroutine(Jump());
                 }
@@ -221,5 +221,5 @@ public class PlayerController : MonoBehaviour
         return currState;
     }
 
-    
+
 }

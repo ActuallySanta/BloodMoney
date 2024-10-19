@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Rewired;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -10,37 +10,33 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private InputAction playerMoveInputs;
     [SerializeField] private InputAction playerShootInputs;
 
-    [SerializeField] private Player1InputActions playerControls;
+    private Player player;
 
-    public bool didFire = false;
-    public InputDevice playerInputDevice;
+    public bool fireInput = false;
+    public bool jumpInput = false;
 
     private void Awake()
     {
-        playerControls = new Player1InputActions();
+        player = ReInput.players.GetPlayer(playerInd);
     }
 
     void OnEnable()
     {
-        playerMoveInputs = playerControls.Player.Move;
-        playerMoveInputs.Enable();
 
-        playerShootInputs = playerControls.Player.Fire;
-        playerMoveInputs.Enable();
 
     }
 
     private void OnDisable()
     {
-        playerMoveInputs.Disable();
-        playerShootInputs.Disable();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        didFire = playerShootInputs.IsPressed();
+        fireInput = player.GetButton("Fire");
+        jumpInput = player.GetButton("Jump");
     }
 
     /// <summary>
@@ -51,15 +47,9 @@ public class PlayerInputController : MonoBehaviour
     {
         Vector2 moveDir;
 
+        moveDir.x = player.GetAxis("MoveHorizontal");
+        moveDir.y = player.GetAxis("MoveVertical");
 
-        if (playerMoveInputs.ReadValue<Vector2>().x != 0)
-        {
-            moveDir = playerMoveInputs.ReadValue<Vector2>();
-        }
-        else
-        {
-            moveDir = new Vector2(0, playerMoveInputs.ReadValue<Vector2>().y);
-        }
         return moveDir;
     }
 }

@@ -43,7 +43,7 @@ public class BattleSceneManager : MonoBehaviour
     private List<GameObject> activePlayers = new List<GameObject>();
 
     int currPlayerSelecting = 0;
-    
+
     public float startingHealth;
 
     [HideInInspector] public GameObject levelObjects;
@@ -125,13 +125,13 @@ public class BattleSceneManager : MonoBehaviour
 
 
         //If there is 1 or less players remaining (to account for a draw) end the game
-        
+
         if (activePlayers.Count <= 1 && isPlaying)
         {
             Debug.Log("Ended Round");
             StartCoroutine(EndRound());
         }
-        
+
 
         if (isPlaying)
         {
@@ -160,6 +160,11 @@ public class BattleSceneManager : MonoBehaviour
 
     private IEnumerator EndRound()
     {
+        foreach (GameObject player in activePlayers)
+        {
+            player.GetComponent<PlayerInput>().DeactivateInput();
+        }
+
         isPlaying = false;
         isStarting = true;
 
@@ -213,9 +218,8 @@ public class BattleSceneManager : MonoBehaviour
         {
             Debug.Log("Made it to the round start");
             //Instantiate each player
-            GameObject player = Instantiate(playerPrefab,playerSpawnpoints[i].position,
-                Quaternion.identity, this.gameObject.transform);
-            
+            GameObject player = Instantiate(playerPrefab,playerSpawnpoints[i].position, Quaternion.identity, this.gameObject.transform);
+
             //Get references to the player controller,player input manager, and the health manager
             PlayerController pController = player.GetComponent<PlayerController>();
             PlayerHealthManager pHManager = player.GetComponent<PlayerHealthManager>();
@@ -226,7 +230,7 @@ public class BattleSceneManager : MonoBehaviour
             pHManager.maxHealth = playerStartingHealth[i];
             pWeapon.data = playerGunData[i];
             pController.charData = playerCharData[i];
-            pInputController.playerInputDevice = InputSystem.GetDeviceById(i);
+            pInputController.playerInd = i;
 
             //Add each player to a list containing all active players
             activePlayers.Add(player);
@@ -263,6 +267,7 @@ public class BattleSceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(timeBetweenCountdowns);
         roundStartText.gameObject.SetActive(false);
+
         isStarting = false;
         isPlaying = true;
     }
