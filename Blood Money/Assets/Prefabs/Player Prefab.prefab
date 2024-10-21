@@ -314,24 +314,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInd: 0
   playerMoveInputs:
-    m_Name: Player Move Inputs
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 889f38cc-fe0f-4047-9fff-b5e39ec30339
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+    _id: 0
+    _name: 
+    _type: 0
+    _descriptiveName: 
+    _positiveDescriptiveName: 
+    _negativeDescriptiveName: 
+    _key: 
+    _positiveKey: 
+    _negativeKey: 
+    _behaviorId: 0
+    _userAssignable: 0
+    _categoryId: 0
   playerShootInputs:
-    m_Name: Player Shoot Inputs
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 2f1abf97-472d-4e89-9e73-6630c16ea3ed
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  didFire: 0
+    _id: 0
+    _name: 
+    _type: 0
+    _descriptiveName: 
+    _positiveDescriptiveName: 
+    _negativeDescriptiveName: 
+    _key: 
+    _positiveKey: 
+    _negativeKey: 
+    _behaviorId: 0
+    _userAssignable: 0
+    _categoryId: 0
+  fireInput: 0
+  jumpInput: 0
 --- !u!50 &7431154702507195357
 Rigidbody2D:
   serializedVersion: 5

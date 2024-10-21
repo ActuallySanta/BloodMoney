@@ -56,6 +56,19 @@ public class CharacterSelectMenuManager : MonoBehaviour
         p2SplashImage.gameObject.SetActive(false);
         SelectGameMode(gameMode.hundredHealth);
 
+        p1CharacterName.text = characterData[0].name;
+
+        p1SplashImage.gameObject.SetActive(true);
+        p1SplashImage.sprite = characterData[0].defaultSprite;
+
+        p1Data = characterData[0];
+
+        p2CharacterName.text = characterData[0].name;
+
+        p2SplashImage.gameObject.SetActive(true);
+        p2SplashImage.sprite = characterData[0].defaultSprite;
+
+        p2Data = characterData[0];
     }
 
     private void Update()

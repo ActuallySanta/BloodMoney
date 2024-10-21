@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (BattleSceneManager.instance.isStarting) return;
 
         //Make the sprite face the direction the character is moving
-        if (inputVector.x != 0) facingDir = inputVector.x;
+        facingDir = inputVector.x;
 
         transform.localScale = new Vector3(facingDir, transform.localScale.y, transform.localScale.z);
 

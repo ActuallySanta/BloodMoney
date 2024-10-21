@@ -18,18 +18,8 @@ public class PlayerInputController : MonoBehaviour
     private void Awake()
     {
         player = ReInput.players.GetPlayer(playerInd);
-    }
 
-    void OnEnable()
-    {
-
-
-    }
-
-    private void OnDisable()
-    {
-
-
+        player.controllers.maps.GetMap(1).enabled = true;
     }
 
     // Update is called once per frame
@@ -47,7 +37,15 @@ public class PlayerInputController : MonoBehaviour
     {
         Vector2 moveDir;
 
-        moveDir.x = player.GetAxis("MoveHorizontal");
+        if (player.GetAxis("MoveHorizontal") <= 1f || player.GetAxis("MoveHorizontal") >= 1f)
+        {
+            moveDir.x = player.GetAxis("MoveHorizontal");
+        }
+        else
+        {
+            moveDir.x = 0;
+        }
+
         moveDir.y = player.GetAxis("MoveVertical");
 
         return moveDir;
