@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon-template-flight-yoke_0: 1654707752680283790
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

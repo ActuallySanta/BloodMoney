@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      troubleshooting_steam-big-picture-controller-config_0: -4898384179264273772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

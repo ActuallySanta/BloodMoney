@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      examples_playermouseunityui_0: -7257615985317745748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

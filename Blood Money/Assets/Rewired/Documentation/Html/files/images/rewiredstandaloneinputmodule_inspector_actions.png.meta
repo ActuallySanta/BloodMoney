@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rewiredstandaloneinputmodule_inspector_actions_0: 6580760126283506635
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

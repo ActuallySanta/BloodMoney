@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rewirededitor_players_layoutmanagerrulesetoptions_0: -9041051295774681054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

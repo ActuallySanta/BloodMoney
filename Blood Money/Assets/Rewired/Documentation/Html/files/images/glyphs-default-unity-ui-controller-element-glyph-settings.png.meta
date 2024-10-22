@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glyphs-default-unity-ui-controller-element-glyph-settings_0: -2821920355689924390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

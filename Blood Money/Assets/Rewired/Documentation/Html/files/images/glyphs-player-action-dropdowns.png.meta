@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glyphs-player-action-dropdowns_0: 558575100890614696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

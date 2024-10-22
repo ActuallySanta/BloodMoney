@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      playercontrollers_playermouse_inspector_0: -8665768401115797600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

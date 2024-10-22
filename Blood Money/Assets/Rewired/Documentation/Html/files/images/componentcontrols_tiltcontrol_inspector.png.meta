@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      componentcontrols_tiltcontrol_inspector_0: -6887327130391856727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glyphs-glyph-provider-inspector_0: -2050465404152889356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

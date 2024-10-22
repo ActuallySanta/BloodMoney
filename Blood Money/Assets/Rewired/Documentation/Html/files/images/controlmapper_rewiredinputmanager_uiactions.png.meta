@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      controlmapper_rewiredinputmanager_uiactions_0: -66279829025345004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

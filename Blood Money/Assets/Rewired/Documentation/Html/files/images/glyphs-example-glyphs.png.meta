@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glyphs-example-glyphs_0: 5704259622774026932
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

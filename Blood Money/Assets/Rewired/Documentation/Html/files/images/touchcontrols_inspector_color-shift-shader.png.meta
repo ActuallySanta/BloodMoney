@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_inspector_color-shift-shader_0: -4323133576490233315
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

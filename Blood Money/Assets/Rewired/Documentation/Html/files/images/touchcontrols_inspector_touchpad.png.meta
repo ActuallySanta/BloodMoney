@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_inspector_touchpad_0: 8554401850299732178
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

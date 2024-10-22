@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_inspector_touchjoystickradialindicator_0: -9113835931741305981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

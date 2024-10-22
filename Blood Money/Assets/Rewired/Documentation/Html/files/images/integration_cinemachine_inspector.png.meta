@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      integration_cinemachine_inspector_0: 6682014075681213053
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glyphs-unity-ui-text-mesh-pro-glyph-helper-inspector_0: -4387778581031130887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

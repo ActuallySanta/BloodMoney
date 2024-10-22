@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      behavior-designer-logo_0: -2236705418470678627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

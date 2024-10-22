@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon-template-hotas_0: 1056631112517542582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

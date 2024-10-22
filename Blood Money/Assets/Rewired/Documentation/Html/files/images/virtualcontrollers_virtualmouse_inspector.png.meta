@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      virtualcontrollers_virtualmouse_inspector_0: 6935550018888539678
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

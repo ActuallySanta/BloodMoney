@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon-template-racing-wheel_0: 1259084418128021618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

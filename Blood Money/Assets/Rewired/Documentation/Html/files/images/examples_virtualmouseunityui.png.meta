@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      examples_virtualmouseunityui_0: 5056316123763722650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

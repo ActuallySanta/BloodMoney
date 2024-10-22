@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      controlmapper_canvas-scaler_0: 15344109336126885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

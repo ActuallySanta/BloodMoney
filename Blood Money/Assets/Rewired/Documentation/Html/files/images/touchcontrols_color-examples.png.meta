@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_color-examples_0: 993381048313414282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

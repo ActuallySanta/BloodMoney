@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      examples_dualshock4specialfeatures_0: -3977018333027443516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

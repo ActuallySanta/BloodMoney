@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_inspector_touchjoystick-touch-region-tut-step2_0: -1489420619481550120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

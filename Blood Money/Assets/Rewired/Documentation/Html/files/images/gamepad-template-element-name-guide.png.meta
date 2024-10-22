@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gamepad-template-element-name-guide_0: 2402290374656542533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

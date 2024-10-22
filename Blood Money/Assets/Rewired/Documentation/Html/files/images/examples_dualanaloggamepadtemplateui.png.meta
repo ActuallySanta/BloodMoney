@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      examples_dualanaloggamepadtemplateui_0: -4193689877691696561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

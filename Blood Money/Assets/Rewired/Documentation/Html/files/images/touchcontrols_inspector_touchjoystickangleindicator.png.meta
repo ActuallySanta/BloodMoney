@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_inspector_touchjoystickangleindicator_0: 7967858539200163986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

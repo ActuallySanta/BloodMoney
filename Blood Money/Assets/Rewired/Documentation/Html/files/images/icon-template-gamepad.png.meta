@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon-template-gamepad_0: -4297622920409825937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

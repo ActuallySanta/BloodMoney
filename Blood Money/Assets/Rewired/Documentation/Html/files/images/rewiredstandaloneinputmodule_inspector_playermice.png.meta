@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rewiredstandaloneinputmodule_inspector_playermice_0: -956266839425590152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

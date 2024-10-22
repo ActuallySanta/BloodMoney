@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      specialplatformsupport_uwp_playersettings_hid_0: -5379003798536644679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

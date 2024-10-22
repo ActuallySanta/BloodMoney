@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      examples_gamepadtemplateui_0: 256766582138297868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

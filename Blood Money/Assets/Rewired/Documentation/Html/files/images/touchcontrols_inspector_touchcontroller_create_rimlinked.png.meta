@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touchcontrols_inspector_touchcontroller_create_rimlinked_0: 8327210792790137548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
