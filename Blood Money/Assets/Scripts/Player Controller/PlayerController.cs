@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (BattleSceneManager.instance.isStarting) return;
 
         //Make the sprite face the direction the character is moving
-        facingDir = inputVector.x;
+        if (inputVector.x != 0) facingDir = Mathf.Sign(inputVector.x);
 
         transform.localScale = new Vector3(facingDir, transform.localScale.y, transform.localScale.z);
 
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //Let the player jump
-                if ((inputVector.y > 0 || playerInput.jumpInput) && canJump)
+                if ((inputVector.y > 0) && canJump)
                 {
                     StartCoroutine(Jump());
                 }
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
                 if (inputVector.x == 0 && isGrounded) ChangeState(PlayerState.idle);
 
                 //Let the player jump if they press the up key
-                if (inputVector.y > 0 && canJump)
+                if ((inputVector.y > 0 || playerInput.jumpInput) && canJump)
                 {
                     StartCoroutine(Jump());
                 }
