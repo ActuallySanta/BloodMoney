@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class QuitGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void doExitGame()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {   
-    }
-
-    public void doExitGame() { 
         Debug.Log("losies this quit");
         Application.Quit();
-
     }
 }
