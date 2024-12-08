@@ -18,8 +18,8 @@ public class CharacterSelectMenuManager : MonoBehaviour
     [SerializeField] private CharacterData[] characterData;
 
     //The individual data that each player has
-    private CharacterData p1Data;
-    private CharacterData p2Data;
+    [SerializeField] private CharacterData p1Data;
+    [SerializeField] private CharacterData p2Data;
 
     public enum currPlayerSelecting
     {

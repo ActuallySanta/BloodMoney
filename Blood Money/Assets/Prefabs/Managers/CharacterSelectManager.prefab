@@ -4139,7 +4139,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4275,7 +4275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000667572, y: -450}
+  m_AnchoredPosition: {x: 0.0000667572, y: -429.899}
   m_SizeDelta: {x: 480, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &24561426831630097
@@ -4778,7 +4778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000667572, y: -550}
+  m_AnchoredPosition: {x: 0.0000667572, y: -491.31314}
   m_SizeDelta: {x: 480, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &271343546396199704
@@ -4944,6 +4944,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e4b9affe897a5be4dacdb9d9de9cb18e, type: 2}
   - {fileID: 11400000, guid: 247b82c71b18f15479366ad3ab7e9b84, type: 2}
   - {fileID: 11400000, guid: b65a146c0bb3bd449a1b653b7a9d575f, type: 2}
+  p1Data: {fileID: 11400000, guid: e1679fa69531ae0498f197aeb0674c0e, type: 2}
+  p2Data: {fileID: 11400000, guid: e1679fa69531ae0498f197aeb0674c0e, type: 2}
   modeSelectText: {fileID: 1093584182}
   battleManager: {fileID: 1365656896646078009, guid: f2e97961e233d494788d6482d8228607, type: 3}
   levelObject: {fileID: 5425290360232956328, guid: d70eef0b2c765eb48bac0c0ad156e0cb, type: 3}
