@@ -340,7 +340,7 @@ MonoBehaviour:
         m_MethodName: ChooseLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5425290360232956328, guid: bdf0d34ec85755f418b7ba3552e8ce37, type: 3}
+          m_ObjectArgument: {fileID: 5425290360232956328, guid: c501804f121d0ac43996614498214d63, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
         m_MethodName: ChooseLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5425290360232956328, guid: f68e9638b706992439f67d9a9592ac67, type: 3}
+          m_ObjectArgument: {fileID: 5425290360232956328, guid: 752d2725f5313604a8aee2c1e83df81e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -817,9 +817,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 41719067}
-  - {fileID: 1670972693}
   - {fileID: 308571292}
   - {fileID: 80902159}
+  - {fileID: 1670972693}
   m_Father: {fileID: 1387635226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1450,7 +1450,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2433,7 +2433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SMILE
+  m_text: LAST STOP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
   m_sharedMaterial: {fileID: 952876029514853387, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
@@ -2869,7 +2869,7 @@ MonoBehaviour:
         m_MethodName: ChooseLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5425290360232956328, guid: 77d6ddb909a82b940adc7bc264fd3899, type: 3}
+          m_ObjectArgument: {fileID: 5425290360232956328, guid: 3569cc97004186141b4a593c4a40dc4c, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3309,7 +3309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: THE PIT
+  m_text: TRIPPING HAZARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
   m_sharedMaterial: {fileID: 952876029514853387, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
@@ -3445,7 +3445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BIG ROOM WITH PLATFORMS
+  m_text: TRAMPOLINE PARK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
   m_sharedMaterial: {fileID: 952876029514853387, guid: 4d07b696219bf6545b539b4ff009341a, type: 2}
